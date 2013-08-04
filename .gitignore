@@ -11,4 +11,8 @@ pids
 logs
 results
 
+src
+_gh_pages
+vendor
+node_modules
 npm-debug.log
