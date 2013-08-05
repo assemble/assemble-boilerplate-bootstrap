@@ -10,7 +10,7 @@
 ## Quickstart
 _You must have NPM, Bower and Grunt installed globally before you begin._
 
-First, **[Downlaod][download]** this project, `git clone https://github.com/assemble/assemble-bootstrap.git` or run `bower install assemble-bootstrap`.
+First, **[Download][download]** this project, `git clone https://github.com/assemble/assemble-bootstrap.git` or run `bower install assemble-bootstrap`.
 
 Then, `cd` into the project and from the command line run:
 
