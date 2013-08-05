@@ -24,8 +24,8 @@
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-  <script src="/assets/js/html5shiv.js"></script>
-  <script src="/assets/js/respond.min.js"></script>
+  <script src="assets/js/html5shiv.js"></script>
+  <script src="assets/js/respond.min.js"></script>
 <![endif]-->
 
 <!-- Favicons -->
@@ -53,7 +53,7 @@
     <!-- Docs master nav -->
     <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
   <div class="container">
-    <a href="./" class="navbar-brand">Bootstrap 3 RC1</a>
+    <a href="index.html" class="navbar-brand">Bootstrap 3 RC1</a>
     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -95,7 +95,7 @@
     <div class="bs-old-docs">
   <div class="container">
     <strong>
-      <a href="./2.3../">Looking for Bootstrap 2.3.2 docs?</a>
+      <a href="./2.3.index.html">Looking for Bootstrap 2.3.2 docs?</a>
     </strong>
     We've moved it to a new home while we push forward with Bootstrap 3. <a href="http://blog.getbootstrap.com/">Read the blog</a> for details.
   </div>
@@ -107,8 +107,7 @@
         <div class="col-lg-3">
           <div class="bs-sidebar">
             <ul class="nav bs-sidenav">
-               
-                 <li>
+                <li>
   <a href="#download">Download Bootstrap</a>
   <ul class="nav">
     <li><a href="#download-options">Download options</a></li>
@@ -153,14 +152,14 @@
 
     <h3>Download compiled CSS and JS</h3>
     <p class="lead">The fastest way to get started is to get the compiled and minified versions of our CSS and JavaScript. No documentation or original source files are included.</p>
-    <p><a class="btn btn-large btn-primary" href="https://github.com/twbs/bootstrap/releases/download/v3.0.0-rc1/bs-v3.0.0-rc1-dist.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);">Download Bootstrap</a></p>
+    <p><a class="btn btn-lg btn-primary" href="http://getbootstrap.com/bs-v3.0.0-rc1-dist.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);">Download Bootstrap</a></p>
 
     <hr>
 
     <h3 id="download-options">More download options</h3>
     <div class="bs-docs-dl-options">
       <h4>
-        <a href="https://github.com/twbs/bootstrap/archive/v3.0.0-rc1.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download latest source code</a>
+        <a href="https://github.com/twbs/bootstrap/archive/3.0.0-wip.zip" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download latest source code</a>
       </h4>
       <p>Get the original files for all CSS and JavaScript by downloading the latest version directly from GitHub.</p>
       <h4>
@@ -183,7 +182,7 @@
     <p>The folks over at <a href="https://www.netdna.com/">NetDNA</a> have graciously provided CDN support for Bootstrap's CSS and JavaScript. To use, swap your local instances for the <a href="http://www.bootstrapcdn.com/">Bootstrap CDN</a> links listed below.</p>
 
 <pre><code class="language-html">&lt;!-- Latest compiled and minified CSS --&gt;
-&lt;link href=&quot;//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css&quot;&gt;
 
 &lt;!-- Latest compiled and minified JavaScript --&gt;
 &lt;script src=&quot;//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</code></pre>
@@ -253,7 +252,7 @@
     &lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;
     &lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
 
-    &lt;!-- Optionally enable responsive features in IE8 --&gt;
+    &lt;!-- Optionally enable responsive features in IE8. Respond.js can be obtained from https://github.com/scottjehl/Respond --&gt;
     &lt;script src=&quot;js/respond.js&quot;&gt;&lt;/script&gt;
   &lt;/body&gt;
 &lt;/html&gt;</code></pre>
@@ -337,7 +336,7 @@
         <h4>It does not require you to:</h4>
         <ul>
           <li>Include the source of Bootstrap itself, or of any modifications you may have made to it, in any redistribution you may assemble that includes it</li>
-          <li>Submit changes that you make to Bootstrap back to Twitter (though such feedback is encouraged)</li>
+          <li>Submit changes that you make to Bootstrap back to the Bootstrap project (though such feedback is encouraged)</li>
         </ul>
       </div>
     </div>
@@ -426,9 +425,6 @@
       </div>
 
     </div>
-
-    <!-- Quick back to top -->
-    <a href="#" class="bs-top">Back to top</a>
 
     <!-- Footer
     ================================================== -->

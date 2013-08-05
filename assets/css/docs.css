@@ -20,10 +20,25 @@ body {
   border-color: #e5e5e5;
 }
 .btn-bs:hover,
+.btn-bs:focus,
 .btn-bs:active {
   color: #fff;
   background-color: #563d7c;
   border-color: #563d7c;
+}
+
+/* Homepage button */
+.btn-outline {
+  color: #fff;
+  background-color: transparent;
+  border-color: #cdbfe3;
+}
+.btn-outline:hover,
+.btn-outline:focus,
+.btn-outline:active {
+  color: #563d7c;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 /* Temp CSS until RC2 */
@@ -74,8 +89,21 @@ body {
   color: #555;
 }
 .bs-docs-home .bs-old-docs {
+  padding-top: 0;
+  padding-bottom: 0;
   text-align: center;
-  border-top: 1px solid #e5e5e5;
+  color: inherit;
+  background-color: transparent;
+  border-color: transparent;
+}
+.bs-docs-home .bs-old-docs a {
+  color: #fff;
+}
+
+/* Homepage */
+.bs-docs-home {
+  color: #cdbfe3;
+  background-color: #563d7c;
 }
 
 
@@ -90,10 +118,11 @@ body {
 .bs-masthead h1 {
   font-size: 50px;
   line-height: 1;
+  color: #fff;
 }
 
 /* Download button */
-.bs-masthead .btn-bs {
+.bs-masthead .btn-outline {
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 18px 24px;
@@ -118,6 +147,9 @@ body {
 }
 .bs-masthead-links li + li {
   margin-left: 20px;
+}
+.bs-masthead-links a {
+  color: #fff;
 }
 
 
@@ -260,11 +292,8 @@ body {
 
 /* Nav: second level (shown on .active) */
 .bs-sidebar .nav .nav {
-  display: none;
+  display: none; /* Hide by default, but at >768px, show it */
   margin-bottom: 8px;
-}
-.bs-sidebar .nav > .active > ul {
-  display: block;
 }
 .bs-sidebar .nav .nav > li > a {
   padding-top:    3px;
@@ -388,7 +417,6 @@ body {
 .bs-example-type .table td {
   color: #999;
   vertical-align: middle;
-  border-color: ;
 }
 .bs-example-type .table td,
 .bs-example-type .table th {
@@ -749,11 +777,6 @@ input.focused {
   margin-bottom: 5px;
 }
 
-/* Hide the top link initially */
-.bs-top {
-  display: none;
-}
-
 
 /* Responsive variations
 -------------------------------------------------- */
@@ -768,26 +791,6 @@ input.focused {
 /* Tablets and up */
 @media screen and (min-width: 768px) {
 
-  /* Back to top link */
-  .bs-top {
-    display: block; /* Unhide */
-    float: left;
-    padding: 7px 15px;
-    font-weight: 500;
-    color: #999;
-    background-color: #eee;
-    border-radius: 4px;
-  }
-  .bs-top:hover {
-    color: #fff;
-    text-decoration: none;
-    background-color: #999;
-  }
-  .bs-top.affix {
-    position: fixed;
-    right:  15px;
-    bottom: 15px;
-  }
   .bs-header {
     font-size: 21px;
     text-align: left;
@@ -817,11 +820,15 @@ input.focused {
   .bs-sidebar {
     display: block;
   }
+  /* Show the hidden subnavs when space allows it */
+  .bs-sidebar .nav > .active > ul {
+    display: block;
+  }
 
   /* Tweak display of docs jumbotrons */
   .bs-masthead {
-    padding-top:    100px;
-    padding-bottom: 100px;
+    padding-top:    140px;
+    padding-bottom: 140px;
   }
   .bs-masthead h1 {
     font-size: 100px;
@@ -871,7 +878,6 @@ input.focused {
     width: 330px !important;
     min-height: 132px;
   }
-
 }
 
 /* Large desktops and up */

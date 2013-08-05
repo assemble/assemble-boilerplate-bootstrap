@@ -24,8 +24,8 @@
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-  <script src="/assets/js/html5shiv.js"></script>
-  <script src="/assets/js/respond.min.js"></script>
+  <script src="assets/js/html5shiv.js"></script>
+  <script src="assets/js/respond.min.js"></script>
 <![endif]-->
 
 <!-- Favicons -->
@@ -53,7 +53,7 @@
     <!-- Docs master nav -->
     <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
   <div class="container">
-    <a href="./" class="navbar-brand">Bootstrap 3 RC1</a>
+    <a href="index.html" class="navbar-brand">Bootstrap 3 RC1</a>
     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -95,7 +95,7 @@
     <div class="bs-old-docs">
   <div class="container">
     <strong>
-      <a href="./2.3../">Looking for Bootstrap 2.3.2 docs?</a>
+      <a href="./2.3.index.html">Looking for Bootstrap 2.3.2 docs?</a>
     </strong>
     We've moved it to a new home while we push forward with Bootstrap 3. <a href="http://blog.getbootstrap.com/">Read the blog</a> for details.
   </div>
@@ -108,8 +108,7 @@
           <div class="bs-sidebar">
             <ul class="nav bs-sidenav">
               
-               
-                 <li>
+                <li>
   <a href="#overview">Overview</a>
   <ul class="nav">
     <li><a href="#overview-doctype">HTML5 doctype</a></li>
@@ -168,7 +167,6 @@
     <li><a href="#forms-horizontal">Horizontal variation</a></li>
     <li><a href="#forms-controls">Supported controls</a></li>
     <li><a href="#forms-control-states">Control states</a></li>
-    <li><a href="#forms-input-groups">Input groups</a></li>
     <li><a href="#forms-control-sizes">Control sizing</a></li>
     <li><a href="#forms-help-text">Help text</a></li>
   </ul>
@@ -224,6 +222,13 @@
 
 
 
+    <h3 id="overview-responsive-images">Responsive images</h3>
+    <p>Images in Bootstrap 3 can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element.</p>
+
+<pre><code class="language-html">&lt;img src=&quot;...&quot; class=&quot;img-responsive&quot; alt=&quot;Reponsive image&quot;&gt;</code></pre>
+
+
+
     <h3 id="overview-type-links">Typography and links</h3>
     <p>Bootstrap sets basic global display, typography, and link styles. Specifically, we:</p>
     <ul>
@@ -232,13 +237,13 @@
       <li>Use the <code>@font-family-base</code>, <code>@font-size-base</code>, and <code>@line-height-base</code> attributes as our typographic base</li>
       <li>Set the global link color via <code>@link-color</code> and apply link underlines only on <code>:hover</code></li>
     </ul>
-    <p>These styles can be found within <strong>scaffolding.less</strong>.</p>
+    <p>These styles can be found within <code>scaffolding.less</code>.</p>
 
     <h3 id="overview-normalize">Normalize reset</h3>
     <p>For improved cross-browser rendering, we use <a href="http://necolas.github.io/normalize.css/" target="_blank">Normalize</a>, a project by <a href="http://twitter.com/necolas" target="_blank">Nicolas Gallagher</a> and <a href="http://twitter.com/jon_neal" target="_blank">Jonathan Neal</a>.</p>
 
     <h3 id="overview-container">Centering with container</h3>
-    <p>Easily center a page's contents by wrapping its contents in a container. Containers set <code>max-width</code> at various media query breakpoints to match our grid system.</p>
+    <p>Easily center a page's contents by wrapping its contents in a <code>.container</code>. Containers set <code>max-width</code> at various media query breakpoints to match our grid system.</p>
 
 <pre><code class="language-html">&lt;div class=&quot;container&quot;&gt;
   ...
@@ -257,7 +262,7 @@
     </div>
     <p class="lead">With the launch of Bootstrap 3, icons have been moved to a <a href="https://github.com/twbs/bootstrap-glyphicons">separate repository</a>. This keeps the primary project as lean as possible, makes it easier for folks to swap icon libraries, and makes Glyphicons icon fonts more readily available to more people outside Bootstrap.</p>
     <p class="lead">
-      <a href="http://glyphicons.getbootstrap.com/" class="btn btn-default btn-large">Visit Glyphicons for Bootstrap</a> or <a href="https://github.com/twbs/bootstrap-glyphicons">download from GitHub</a>
+      <a href="http://glyphicons.getbootstrap.com/" class="btn btn-default btn-lg">Visit Glyphicons for Bootstrap</a> or <a href="https://github.com/twbs/bootstrap-glyphicons">download from GitHub</a>
     </p>
   </div>
 
@@ -279,16 +284,20 @@
           <tr>
             <th></th>
             <th>
-              Tiny grid
-              <small>Phones (&lt;480px)</small>
+              Extra small devices
+              <small>Phones (&lt;768px)</small>
             </th>
             <th>
-              Small grid
-              <small>Tablets (&lt;768px)</small>
+              Small devices
+              <small>Tablets (&gt;768px)</small>
             </th>
             <th>
-              Medium-large grid
-              <small>Destkops (&gt;768px)</small>
+              Medium devices
+              <small>Desktops (&gt;992px)</small>
+            </th>
+            <th>
+              Large devices
+              <small>Desktops (&gt;1200px)</small>
             </th>
           </tr>
         </thead>
@@ -296,31 +305,49 @@
           <tr>
             <th>Grid behavior</th>
             <td>Horizontal at all times</td>
-            <td colspan="2">Collapsed to start, horizontal above breakpoints</td>
+            <td colspan="3">Collapsed to start, horizontal above breakpoints</td>
+          </tr>
+          <tr>
+            <th>Max container width</th>
+            <td>None (auto)</td>
+            <td>728px</td>
+            <td>940px</td>
+            <td>1170px</td>
           </tr>
           <tr>
             <th>Class prefix</th>
             <td><code>.col-</code></td>
             <td><code>.col-sm-</code></td>
-            <td><code>.col-lg-</code></td>
+            <td colspan="2"><code>.col-lg-</code></td>
           </tr>
           <tr>
             <th># of columns</th>
-            <td colspan="3">12</td>
+            <td colspan="4">12</td>
+          </tr>
+          <tr>
+            <th>Max column width</th>
+            <td>Auto</td>
+            <td>~60px</td>
+            <td>~78px</td>
+            <td>~98px</td>
+          </tr>
+          <tr>
+            <th>Gutter width</th>
+            <td colspan="4">30px (15px on each side of a column)</td>
           </tr>
           <tr>
             <th>Nestable</th>
-            <td colspan="3">Yes</td>
+            <td colspan="4">Yes</td>
           </tr>
           <tr>
             <th>Offsets</th>
             <td colspan="2" class="text-muted">N/A</td>
-            <td>Yes</td>
+            <td colspan="2">Yes</td>
           </tr>
           <tr>
             <th>Column ordering</th>
             <td class="text-muted">N/A</td>
-            <td colspan="2">Yes</td>
+            <td colspan="3">Yes</td>
           </tr>
         </tbody>
       </table>
@@ -372,7 +399,7 @@
   &lt;div class=&quot;col-lg-1&quot;&gt;1&lt;/div&gt;
   &lt;div class=&quot;col-lg-1&quot;&gt;1&lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;row show-grid&quot;&gt;
+&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-lg-8&quot;&gt;8&lt;/div&gt;
   &lt;div class=&quot;col-lg-4&quot;&gt;4&lt;/div&gt;
 &lt;/div&gt;
@@ -406,15 +433,20 @@
       </div>
     </div>
 
-<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
+<pre><code class="language-html">&lt;!-- Stack the columns on mobile by making one full-width and the other half-width --&gt;
+&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-12 col-lg-8&quot;&gt;8&lt;/div&gt;
   &lt;div class=&quot;col-6 col-lg-4&quot;&gt;4&lt;/div&gt;
 &lt;/div&gt;
+
+&lt;!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --&gt;
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-6 col-lg-4&quot;&gt;4&lt;/div&gt;
   &lt;div class=&quot;col-6 col-lg-4&quot;&gt;4&lt;/div&gt;
   &lt;div class=&quot;col-6 col-lg-4&quot;&gt;4&lt;/div&gt;
 &lt;/div&gt;
+
+&lt;!-- Columns are always 50% wide, on mobile and desktop --&gt;
 &lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-6 col-lg-6&quot;&gt;6&lt;/div&gt;
   &lt;div class=&quot;col-6 col-lg-6&quot;&gt;6&lt;/div&gt;
@@ -426,32 +458,32 @@
     <p>Build on the previous example by creating even more dynamic and powerful layouts with tablet <code>.col-sm-*</code> classes.</p>
     <div class="bs-docs-grid">
       <div class="row show-grid">
-        <div class="col-12 col-sm-8 col-lg-8">.col-12 .col-lg-8</div>
-        <div class="col-6 col-sm-4 col-lg-4">.col-6 .col-lg-4</div>
+        <div class="col-12 col-sm-8 col-lg-8">.col-12 .col-sm-8 .col-lg-8</div>
+        <div class="col-6 col-sm-4 col-lg-4">.col-6 .col-sm-4 .col-lg-4</div>
       </div>
       <div class="row show-grid">
-        <div class="col-6 col-sm-4 col-lg-4">.col-6 .col-lg-4</div>
-        <div class="col-6 col-sm-4 col-lg-4">.col-6 .col-lg-4</div>
-        <div class="col-6 col-sm-4 col-lg-4">.col-6 .col-lg-4</div>
+        <div class="col-6 col-sm-4 col-lg-4">.col-6 .col-sm-4 .col-lg-4</div>
+        <div class="col-6 col-sm-4 col-lg-4">.col-6 .col-sm-4 .col-lg-4</div>
+        <div class="col-6 col-sm-4 col-lg-4">.col-6 .col-sm-4 .col-lg-4</div>
       </div>
       <div class="row show-grid">
-        <div class="col-6 col-sm-6 col-lg-6">.col-6 .col-lg-6</div>
-        <div class="col-6 col-sm-6 col-lg-6">.col-6 .col-lg-6</div>
+        <div class="col-6 col-sm-6 col-lg-6">.col-6 .col-sm-6 .col-lg-6</div>
+        <div class="col-6 col-sm-6 col-lg-6">.col-6 .col-sm-6 .col-lg-6</div>
       </div>
     </div>
 
 <pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col-12 col-sm-8 col-lg-8&quot;&gt;.col-12 .col-lg-8&lt;/div&gt;
-  &lt;div class=&quot;col-6 col-sm-4 col-lg-4&quot;&gt;.col-6 .col-lg-4&lt;/div&gt;
+  &lt;div class=&quot;col-12 col-sm-8 col-lg-8&quot;&gt;.col-12 .col-sm-8 .col-lg-8&lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-4 col-lg-4&quot;&gt;.col-6 .col-sm-4 .col-lg-4&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col-6 col-sm-4 col-lg-4&quot;&gt;.col-6 .col-lg-4&lt;/div&gt;
-  &lt;div class=&quot;col-6 col-sm-4 col-lg-4&quot;&gt;.col-6 .col-lg-4&lt;/div&gt;
-  &lt;div class=&quot;col-6 col-sm-4 col-lg-4&quot;&gt;.col-6 .col-lg-4&lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-4 col-lg-4&quot;&gt;.col-6 .col-sm-4 .col-lg-4&lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-4 col-lg-4&quot;&gt;.col-6 .col-sm-4 .col-lg-4&lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-4 col-lg-4&quot;&gt;.col-6 .col-sm-4 .col-lg-4&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col-6 col-sm-6 col-lg-6&quot;&gt;.col-6 .col-lg-6&lt;/div&gt;
-  &lt;div class=&quot;col-6 col-sm-6 col-lg-6&quot;&gt;.col-6 .col-lg-6&lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-6 col-lg-6&quot;&gt;.col-6 .col-sm-6 .col-lg-6&lt;/div&gt;
+  &lt;div class=&quot;col-6 col-sm-6 col-lg-6&quot;&gt;.col-6 .col-sm-6 .col-lg-6&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
 
@@ -463,31 +495,31 @@
     </div>
 
     <h3 id="grid-offsetting">Offsetting columns</h3>
-    <p>Move columns to the right using <code>.col-offset-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.col-offset-4</code> moves <code>.col-lg-4</code> over four columns.</p>
+    <p>Move columns to the right using <code>.col-lg-offset-*</code> classes. These classes increase the left margin of a column by <code>*</code> columns. For example, <code>.col-lg-offset-4</code> moves <code>.col-lg-4</code> over four columns.</p>
     <div class="bs-docs-grid">
       <div class="row show-grid">
         <div class="col-lg-4">4</div>
-        <div class="col-lg-4 col-offset-4">4 offset 4</div>
+        <div class="col-lg-4 col-lg-offset-4">4 offset 4</div>
       </div><!-- /row -->
       <div class="row show-grid">
-        <div class="col-lg-3 col-offset-3">3 offset 3</div>
-        <div class="col-lg-3 col-offset-3">3 offset 3</div>
+        <div class="col-lg-3 col-lg-offset-3">3 offset 3</div>
+        <div class="col-lg-3 col-lg-offset-3">3 offset 3</div>
       </div><!-- /row -->
       <div class="row show-grid">
-        <div class="col-lg-6 col-offset-3">6 offset 3</div>
+        <div class="col-lg-6 col-lg-offset-3">6 offset 3</div>
       </div><!-- /row -->
     </div>
 
 <pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
   &lt;div class=&quot;col-lg-4&quot;&gt;...&lt;/div&gt;
-  &lt;div class=&quot;col-lg-4 col-offset-4&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;col-lg-4 col-lg-offset-4&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col-lg-3 col-offset-3&quot;&gt;3 offset 3&lt;/div&gt;
-  &lt;div class=&quot;col-lg-3 col-offset-3&quot;&gt;3 offset 3&lt;/div&gt;
+  &lt;div class=&quot;col-lg-3 col-lg-offset-3&quot;&gt;3 offset 3&lt;/div&gt;
+  &lt;div class=&quot;col-lg-3 col-lg-offset-3&quot;&gt;3 offset 3&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col-lg-6 col-offset-3&quot;&gt;...&lt;/div&gt;
+  &lt;div class=&quot;col-lg-6 col-lg-offset-3&quot;&gt;...&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
 
@@ -526,16 +558,16 @@
 
 
     <h3 id="grid-column-ordering">Column ordering</h3>
-    <p>Easily change the order of our built-in grid columns with <code>.col-push-*</code> and <code>.col-pull-*</code> modifier classes.</p>
+    <p>Easily change the order of our built-in grid columns with <code>.col-lg-push-*</code> and <code>.col-lg-pull-*</code> modifier classes.</p>
     <div class="row show-grid">
-      <div class="col-lg-9 col-push-3">9</div>
-      <div class="col-lg-3 col-pull-9">3</div>
+      <div class="col-lg-9 col-lg-push-3">9</div>
+      <div class="col-lg-3 col-lg-pull-9">3</div>
     </div>
 
 
-<pre><code class="language-html">&lt;div class=&quot;row show-grid&quot;&gt;
-  &lt;div class=&quot;col-lg-9 col-push-3&quot;&gt;9&lt;/div&gt;
-  &lt;div class=&quot;col-lg-3 col-pull-9&quot;&gt;3&lt;/div&gt;
+<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-9 col-lg-push-3&quot;&gt;9&lt;/div&gt;
+  &lt;div class=&quot;col-lg-3 col-lg-pull-9&quot;&gt;3&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 
 
@@ -831,7 +863,7 @@
     <p>For quoting blocks of content from another source within your document.</p>
 
     <h3>Default blockquote</h3>
-    <p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes we recommend a <code>&lt;p&gt;</code>.</p>
+    <p>Wrap <code>&lt;blockquote&gt;</code> around any <abbr title="HyperText Markup Language">HTML</abbr> as the quote. For straight quotes, we recommend a <code>&lt;p&gt;</code>.</p>
     <div class="bs-example">
       <blockquote>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -845,7 +877,7 @@
 
 
     <h3>Blockquote options</h3>
-    <p>Style and content changes for simple variations on a standard blockquote.</p>
+    <p>Style and content changes for simple variations on a standard <code>&lt;blockquote&gt;</code>.</p>
 
     <h4>Naming a source</h4>
     <p>Add <code>&lt;small&gt;</code> tag for identifying the source. Wrap the name of the source work in <code>&lt;cite&gt;</code>.</p>
@@ -1053,7 +1085,7 @@
 
 
 
-    <p>You may optionally add the <code>.pre-scrollable</code> class which will set a max-height of 350px and provide a y-axis scrollbar.</p>
+    <p>You may optionally add the <code>.pre-scrollable</code> class, which will set a max-height of 350px and provide a y-axis scrollbar.</p>
   </div>
 
 
@@ -1114,7 +1146,7 @@
     <p>Use <code>.table-striped</code> to add zebra-striping to any table row within the <code>&lt;tbody&gt;</code>.</p>
     <div class="bs-callout bs-callout-danger">
       <h4>Cross-browser compatibility</h4>
-      <p>Striped tables are styled via the <code>:nth-child</code> CSS selector, which is not available in IE8.</p>
+      <p>Striped tables are styled via the <code>:nth-child</code> CSS selector, which is not available in Internet Explorer 8.</p>
     </div>
     <div class="bs-example">
       <table class="table table-striped">
@@ -1503,11 +1535,19 @@
         <label for="inputPassword" class="col-lg-2 control-label">Password</label>
         <div class="col-lg-10">
           <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
           <div class="checkbox">
             <label>
               <input type="checkbox"> Remember me
             </label>
           </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
           <button type="submit" class="btn btn-default">Sign in</button>
         </div>
       </div>
@@ -1524,11 +1564,19 @@
     &lt;label for=&quot;inputPassword&quot; class=&quot;col-lg-2 control-label&quot;&gt;Password&lt;/label&gt;
     &lt;div class=&quot;col-lg-10&quot;&gt;
       &lt;input type=&quot;password&quot; class=&quot;form-control&quot; id=&quot;inputPassword&quot; placeholder=&quot;Password&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;div class=&quot;col-lg-offset-2 col-lg-10&quot;&gt;
       &lt;div class=&quot;checkbox&quot;&gt;
         &lt;label&gt;
           &lt;input type=&quot;checkbox&quot;&gt; Remember me
         &lt;/label&gt;
       &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;form-group&quot;&gt;
+    &lt;div class=&quot;col-lg-offset-2 col-lg-10&quot;&gt;
       &lt;button type=&quot;submit&quot; class=&quot;btn btn-default&quot;&gt;Sign in&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -1541,7 +1589,7 @@
     <p>Examples of standard form controls supported in an example form layout.</p>
 
     <h3>Inputs</h3>
-    <p>Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p>
+    <p>Most common form control, text-based input fields. Includes support for all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>, <code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>, <code>tel</code>, and <code>color</code>.</p>
     <div class="bs-callout bs-callout-danger">
       <h4>Type declaration required</h4>
       <p>Inputs will only be fully styled if their <code>type</code> is properly declared.</p>
@@ -1601,6 +1649,8 @@
     &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios1&quot; value=&quot;option1&quot; checked&gt;
     Option one is this and that&amp;mdash;be sure to include why it&#39;s great
   &lt;/label&gt;
+&lt;/div&gt;
+&lt;div class=&quot;radio&quot;&gt;
   &lt;label&gt;
     &lt;input type=&quot;radio&quot; name=&quot;optionsRadios&quot; id=&quot;optionsRadios2&quot; value=&quot;option2&quot;&gt;
     Option two can be something else and selecting it will deselect option one
@@ -1636,7 +1686,7 @@
 
 
     <h3>Selects</h3>
-    <p>Use the default option or specify a <code>multiple="multiple"</code> to show multiple options at once.</p>
+    <p>Use the default option, or add <code>multiple</code> to show multiple options at once.</p>
     <form class="bs-example">
       <select class="form-control">
         <option>1</option>
@@ -1646,7 +1696,7 @@
         <option>5</option>
       </select>
       <br>
-      <select multiple="multiple" class="form-control">
+      <select multiple class="form-control">
         <option>1</option>
         <option>2</option>
         <option>3</option>
@@ -1663,7 +1713,7 @@
   &lt;option&gt;5&lt;/option&gt;
 &lt;/select&gt;
 
-&lt;select multiple=&quot;multiple&quot; class=&quot;form-control&quot;&gt;
+&lt;select multiple class=&quot;form-control&quot;&gt;
   &lt;option&gt;1&lt;/option&gt;
   &lt;option&gt;2&lt;/option&gt;
   &lt;option&gt;3&lt;/option&gt;
@@ -1708,7 +1758,7 @@
 
     <div class="bs-callout bs-callout-danger">
       <h4>Cross-browser compatibility</h4>
-      <p>While Bootstrap will apply these styles in all browsers, IE and Safari don't actually support the <code>&lt;disabled&gt;</code> attribute on a <code>&lt;fieldset&gt;</code>. Use custom JavaScript to disable the fieldset in these browsers.</p>
+      <p>While Bootstrap will apply these styles in all browsers, Internet Explorer 9 and below don't actually support the <code>disabled</code> attribute on a <code>&lt;fieldset&gt;</code>. Use custom JavaScript to disable the fieldset in these browsers.</p>
     </div>
 
     <form class="bs-example form-inline">
@@ -1744,7 +1794,7 @@
 
 
     <h3 id="forms-validation">Validation states</h3>
-    <p>Bootstrap includes validation styles for error, warning, and success states on from controls. To use, add <code>.has-warning</code>, <code>.has-error</code>, or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>, and <code>.help-block</code> within that element will receive the validation styles.</li>
+    <p>Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add <code>.has-warning</code>, <code>.has-error</code>, or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>, and <code>.help-block</code> within that element will receive the validation styles.</li>
 
     <form class="bs-example">
       <div class="form-group has-warning">
@@ -1777,294 +1827,36 @@
 
 
 
-    <h2 id="forms-input-groups">Input groups</h3>
-    <p>Add text or buttons before, after, or on both sides of any text-based input. Use <code>.input-group</code> with an <code>.add-on</code> to prepend or append elements to an <code>&lt;input&gt;</code>.</p>
-
-    <div class="bs-callout bs-callout-danger">
-      <h4>Cross-browser compatibility</h4>
-      <p>Avoid using <code>&lt;select&gt;</code> elements here as they cannot be fully styled in WebKit browsers.</p>
-    </div>
-    <div class="bs-callout bs-callout-info">
-      <h4>Tooltips &amp; popovers in input groups require special setting</h4>
-      <p>When using tooltips or popovers on elements within an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the tooltip or popover is triggered).</p>
-    </div>
-
-    <form class="bs-example bs-example-form">
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control" placeholder="Username">
-      </div>
-      <br>
-      <div class="input-group">
-        <input type="text" class="form-control">
-        <span class="input-group-addon">.00</span>
-      </div>
-      <br>
-      <div class="input-group">
-        <span class="input-group-addon">$</span>
-        <input type="text" class="form-control">
-        <span class="input-group-addon">.00</span>
-      </div>
-    </form>
-
-<pre><code class="language-html">&lt;div class=&quot;input-group&quot;&gt;
-  &lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot;&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;input-group&quot;&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
-  &lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;input-group&quot;&gt;
-  &lt;span class=&quot;input-group-addon&quot;&gt;$&lt;/span&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
-  &lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;
-&lt;/div&gt;</code></pre>
-
-
-
-    <h3>Optional sizes</h3>
-    <p>Add the relative form sizing classes to the <code>.input-group-addon</code>.</p>
-    <form class="bs-example bs-example-form">
-      <div class="input-group">
-        <span class="input-group-addon input-large">@</span>
-        <input type="text" class="form-control input-large" placeholder="Username">
-      </div>
-      <br>
-      <div class="input-group">
-        <span class="input-group-addon">@</span>
-        <input type="text" class="form-control" placeholder="Username">
-      </div>
-      <br>
-      <div class="input-group">
-        <span class="input-group-addon input-small">@</span>
-        <input type="text" class="form-control input-small" placeholder="Username">
-      </div>
-    </form>
-
-<pre><code class="language-html">&lt;div class=&quot;input-group&quot;&gt;
-  &lt;span class=&quot;input-group-addon input-large&quot;&gt;@&lt;/span&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control input-large&quot; placeholder=&quot;Username&quot;&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;input-group&quot;&gt;
-  &lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot;&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;input-group&quot;&gt;
-  &lt;span class=&quot;input-group-addon input-small&quot;&gt;@&lt;/span&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control input-small&quot; placeholder=&quot;Username&quot;&gt;
-&lt;/div&gt;</code></pre>
-
-
-
-    <h3>Buttons instead of text</h3>
-    <p>Buttons in input groups are a bit different and require one extra level of nesting. Instead of <code>.input-group-addon</code>, you'll need to use <code>.input-group-btn</code> to wrap the buttons. This is required due to default browser styles that cannot be overridden.</p>
-    <form class="bs-example bs-example-form">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="input-group">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-            <input type="text" class="form-control">
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-        <div class="col-lg-6">
-          <div class="input-group">
-            <input type="text" class="form-control">
-            <span class="input-group-btn">
-              <button class="btn btn-default" type="button">Go!</button>
-            </span>
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
-    </form>
-
-<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col-lg-6&quot;&gt;
-    &lt;div class=&quot;input-group&quot;&gt;
-      &lt;span class=&quot;input-group-btn&quot;&gt;
-        &lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot;&gt;Go!&lt;/button&gt;
-      &lt;/span&gt;
-      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
-    &lt;/div&gt;&lt;!-- /input-group --&gt;
-  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
-  &lt;div class=&quot;col-lg-6&quot;&gt;
-    &lt;div class=&quot;input-group&quot;&gt;
-      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
-      &lt;span class=&quot;input-group-btn&quot;&gt;
-        &lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot;&gt;Go!&lt;/button&gt;
-      &lt;/span&gt;
-    &lt;/div&gt;&lt;!-- /input-group --&gt;
-  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
-&lt;/div&gt;&lt;!-- /.row --&gt;</code></pre>
-
-
-
-    <h3>Button dropdowns</h3>
-    <p></p>
-    <form class="bs-example bs-example-form">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </div><!-- /btn-group -->
-            <input type="text" class="form-control">
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-        <div class="col-lg-6">
-          <div class="input-group">
-            <input type="text" class="form-control">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </div><!-- /btn-group -->
-          </div><!-- /input-group -->
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
-    </form>
-
-<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;col-lg-6&quot;&gt;
-    &lt;div class=&quot;input-group&quot;&gt;
-      &lt;div class=&quot;input-group-btn&quot;&gt;
-        &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Action &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/button&gt;
-        &lt;ul class=&quot;dropdown-menu&quot;&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
-          &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/div&gt;&lt;!-- /btn-group --&gt;
-      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
-    &lt;/div&gt;&lt;!-- /input-group --&gt;
-  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
-  &lt;div class=&quot;col-lg-6&quot;&gt;
-    &lt;div class=&quot;input-group&quot;&gt;
-      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
-      &lt;div class=&quot;input-group-btn&quot;&gt;
-        &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Action &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/button&gt;
-        &lt;ul class=&quot;dropdown-menu&quot;&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
-          &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/div&gt;&lt;!-- /btn-group --&gt;
-    &lt;/div&gt;&lt;!-- /input-group --&gt;
-  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
-&lt;/div&gt;&lt;!-- /.row --&gt;</code></pre>
-
-
-
-    <h3>Segmented dropdown groups</h3>
-    <form class="bs-example bs-example-form">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="input-group">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default" tabindex="-1">Action</button>
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </div>
-            <input type="text" class="form-control">
-          </div><!-- /.input-group -->
-        </div><!-- /.col-lg-6 -->
-        <div class="col-lg-6">
-          <div class="input-group">
-            <input type="text" class="form-control">
-            <div class="input-group-btn">
-              <button type="button" class="btn btn-default" tabindex="-1">Action</button>
-              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
-                <span class="caret"></span>
-              </button>
-              <ul class="dropdown-menu pull-right">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </div>
-          </div><!-- /.input-group -->
-        </div><!-- /.col-lg-6 -->
-      </div><!-- /.row -->
-    </form>
-
-<pre><code class="language-html">&lt;div class=&quot;input-group&quot;&gt;
-  &lt;div class=&quot;input-group-btn&quot;&gt;
-    &lt;!-- Button and dropdown menu --&gt;
-  &lt;/div&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;input-group&quot;&gt;
-  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
-  &lt;div class=&quot;input-group-btn btn-group&quot;&gt;
-    &lt;!-- Button and dropdown menu --&gt;
-  &lt;/div&gt;
-&lt;/div&gt;</code></pre>
-
-
-
     <h2 id="forms-control-sizes">Control sizing</h2>
-    <p>Use relative sizing classes like <code>.input-large</code> or match your inputs to the grid column sizes using <code>.col-lg-*</code> classes.</p>
+    <p>Set heights using classes like <code>.input-lg</code>, and set widths using grid column classes like <code>.col-lg-*</code>.</p>
 
-    <h3>Relative sizing</h3>
+    <h3>Height sizing</h3>
     <p>Create larger or smaller form controls that match button sizes.</p>
     <form class="bs-example bs-example-control-sizing">
       <div class="controls docs-input-sizes">
-        <input class="form-control input-large" type="text" placeholder=".input-large">
+        <input class="form-control input-lg" type="text" placeholder=".input-lg">
         <input type="text" class="form-control" placeholder="Default input">
-        <input class="form-control input-small" type="text" placeholder=".input-small">
+        <input class="form-control input-sm" type="text" placeholder=".input-sm">
 
-        <select class="form-control input-large">
-          <option value="">.input-large</option>
+        <select class="form-control input-lg">
+          <option value="">.input-lg</option>
         </select>
         <select class="form-control">
           <option value="">Default select</option>
         </select>
-        <select class="form-control input-small">
-          <option value="">.input-small</option>
+        <select class="form-control input-sm">
+          <option value="">.input-sm</option>
         </select>
       </div>
     </form>
 
-<pre><code class="language-html">&lt;input class=&quot;form-control input-large&quot; type=&quot;text&quot; placeholder=&quot;.input-large&quot;&gt;
-&lt;input class=&quot;form-control&quot;type=&quot;text&quot; placeholder=&quot;Default input&quot;&gt;
-&lt;input class=&quot;form-control input-small&quot; type=&quot;text&quot; placeholder=&quot;.input-small&quot;&gt;
+<pre><code class="language-html">&lt;input class=&quot;form-control input-lg&quot; type=&quot;text&quot; placeholder=&quot;.input-lg&quot;&gt;
+&lt;input class=&quot;form-control&quot; type=&quot;text&quot; placeholder=&quot;Default input&quot;&gt;
+&lt;input class=&quot;form-control input-sm&quot; type=&quot;text&quot; placeholder=&quot;.input-sm&quot;&gt;
 
-&lt;select class=&quot;form-control input-large&quot;&gt;...&lt;/select&gt;
+&lt;select class=&quot;form-control input-lg&quot;&gt;...&lt;/select&gt;
 &lt;select class=&quot;form-control&quot;&gt;...&lt;/select&gt;
-&lt;select class=&quot;form-control input-small&quot;&gt;...&lt;/select&gt;</code></pre>
+&lt;select class=&quot;form-control input-sm&quot;&gt;...&lt;/select&gt;</code></pre>
 
 
 
@@ -2156,33 +1948,41 @@
 
 
     <h2 id="buttons-sizes">Button sizes</h2>
-    <p>Fancy larger or smaller buttons? Add <code>.btn-large</code> or <code>.btn-small</code> for additional sizes.</p>
+    <p>Fancy larger or smaller buttons? Add <code>.btn-lg</code>, <code>.btn-sm</code>, or <code>.btn-xs</code> for additional sizes.</p>
     <div class="bs-example">
       <p>
-        <button type="button" class="btn btn-primary btn-large">Large button</button>
-        <button type="button" class="btn btn-default btn-large">Large button</button>
+        <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        <button type="button" class="btn btn-default btn-lg">Large button</button>
       </p>
       <p>
         <button type="button" class="btn btn-primary">Default button</button>
         <button type="button" class="btn btn-default">Default button</button>
       </p>
       <p>
-        <button type="button" class="btn btn-primary btn-small">Small button</button>
-        <button type="button" class="btn btn-default btn-small">Small button</button>
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
+        <button type="button" class="btn btn-default btn-sm">Small button</button>
+      </p>
+      <p>
+        <button type="button" class="btn btn-primary btn-xs">Extra small button</button>
+        <button type="button" class="btn btn-default btn-xs">Extra small button</button>
       </p>
     </div>
 
 <pre><code class="language-html">&lt;p&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-large&quot;&gt;Large button&lt;/button&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-large&quot;&gt;Large button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Large button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot;&gt;Large button&lt;/button&gt;
 &lt;/p&gt;
 &lt;p&gt;
   &lt;button type=&quot;button&quot; class=&quot;btn btn-primary&quot;&gt;Default button&lt;/button&gt;
   &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;Default button&lt;/button&gt;
 &lt;/p&gt;
 &lt;p&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-small&quot;&gt;Small button&lt;/button&gt;
-  &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-small&quot;&gt;Small button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-sm&quot;&gt;Small button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-sm&quot;&gt;Small button&lt;/button&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-xs&quot;&gt;Extra small button&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-xs&quot;&gt;Extra small button&lt;/button&gt;
 &lt;/p&gt;</code></pre>
 
 
@@ -2190,13 +1990,13 @@
     <p>Create block level buttons&mdash;those that span the full width of a parent&mdash; by adding <code>.btn-block</code>.</p>
     <div class="bs-example">
       <div class="well" style="max-width: 400px; margin: 0 auto 10px;">
-        <button type="button" class="btn btn-primary btn-large btn-block">Block level button</button>
-        <button type="button" class="btn btn-default btn-large btn-block">Block level button</button>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+        <button type="button" class="btn btn-default btn-lg btn-block">Block level button</button>
       </div>
     </div>
 
-<pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-large btn-block&quot;&gt;Block level button&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-large btn-block&quot;&gt;Block level button&lt;/button&gt;</code></pre>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-primary btn-lg btn-block&quot;&gt;Block level button&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg btn-block&quot;&gt;Block level button&lt;/button&gt;</code></pre>
 
 
 
@@ -2207,12 +2007,12 @@
     <h3>Button element</h3>
     <p>Add the <code>disabled</code> attribute to <code>&lt;button&gt;</code> buttons.</p>
     <p class="bs-example">
-      <button type="button" class="btn btn-primary btn-large" disabled="disabled">Primary button</button>
-      <button type="button" class="btn btn-default btn-large" disabled="disabled">Button</button>
+      <button type="button" class="btn btn-primary btn-lg" disabled="disabled">Primary button</button>
+      <button type="button" class="btn btn-default btn-lg" disabled="disabled">Button</button>
     </p>
 
-<pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-large btn-primary&quot; disabled=&quot;disabled&quot;&gt;Primary button&lt;/button&gt;
-&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-large&quot; disabled=&quot;disabled&quot;&gt;Button&lt;/button&gt;</code></pre>
+<pre><code class="language-html">&lt;button type=&quot;button&quot; class=&quot;btn btn-lg btn-primary&quot; disabled=&quot;disabled&quot;&gt;Primary button&lt;/button&gt;
+&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-lg&quot; disabled=&quot;disabled&quot;&gt;Button&lt;/button&gt;</code></pre>
 
 
 
@@ -2224,12 +2024,12 @@
     <h3>Anchor element</h3>
     <p>Add the <code>.disabled</code> class to <code>&lt;a&gt;</code> buttons.</p>
     <p class="bs-example">
-      <a href="#" class="btn btn-primary btn-large disabled">Primary link</a>
-      <a href="#" class="btn btn-default btn-large disabled">Link</a>
+      <a href="#" class="btn btn-primary btn-lg disabled">Primary link</a>
+      <a href="#" class="btn btn-default btn-lg disabled">Link</a>
     </p>
 
-<pre><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-large disabled&quot;&gt;Primary link&lt;/a&gt;
-&lt;a href=&quot;#&quot; class=&quot;btn btn-default btn-large disabled&quot;&gt;Link&lt;/a&gt;</code></pre>
+<pre><code class="language-html">&lt;a href=&quot;#&quot; class=&quot;btn btn-primary btn-lg disabled&quot;&gt;Primary link&lt;/a&gt;
+&lt;a href=&quot;#&quot; class=&quot;btn btn-default btn-lg disabled&quot;&gt;Link&lt;/a&gt;</code></pre>
 
 
     <p>
@@ -2260,6 +2060,7 @@
     <div class="bs-callout bs-callout-warning">
       <h4>Cross-browser rendering</h4>
       <p>As a best practice, <strong>we highly recommend using the <code>&lt;button&gt;</code> element whenever possible</strong> to ensure matching cross-browser rendering.</p>
+      <p>Among other things, there's <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=697451">a Firefox bug</a> that prevents us from setting the <code>line-height</code> of <code>&lt;input&gt;</code>-based buttons, causing them to not exactly match the height of other buttons on Firefox.</p>
     </div>
 
   </div>
@@ -2289,6 +2090,11 @@
 &lt;img src=&quot;...&quot; class=&quot;img-thumbnail&quot;&gt;</code></pre>
 
 
+
+    <div class="bs-callout bs-callout-warning">
+      <h4>Responsive images</h4>
+      <p>Looking for how to make images more responsive? <a href="../css#overview-responsive-images">Check out the responsive images section</a> up top.</p>
+    </div>
 
   </div>
 
@@ -2482,7 +2288,7 @@
       </li>
       <li>
         <span class="visible-lg">Large</span>
-        <span class="hidden-lg">&#10004; Hidden on desktop</span>
+        <span class="hidden-lg">&#10004; Hidden on large</span>
       </li>
     </ul>
 
@@ -2492,9 +2298,6 @@
       </div>
 
     </div>
-
-    <!-- Quick back to top -->
-    <a href="#" class="bs-top">Back to top</a>
 
     <!-- Footer
     ================================================== -->

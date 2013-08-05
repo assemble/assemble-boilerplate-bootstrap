@@ -24,8 +24,8 @@
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-  <script src="/assets/js/html5shiv.js"></script>
-  <script src="/assets/js/respond.min.js"></script>
+  <script src="assets/js/html5shiv.js"></script>
+  <script src="assets/js/respond.min.js"></script>
 <![endif]-->
 
 <!-- Favicons -->
@@ -53,7 +53,7 @@
     <!-- Docs master nav -->
     <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
   <div class="container">
-    <a href="./" class="navbar-brand">Bootstrap 3 RC1</a>
+    <a href="index.html" class="navbar-brand">Bootstrap 3 RC1</a>
     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -95,7 +95,7 @@
     <div class="bs-old-docs">
   <div class="container">
     <strong>
-      <a href="./2.3../">Looking for Bootstrap 2.3.2 docs?</a>
+      <a href="./2.3.index.html">Looking for Bootstrap 2.3.2 docs?</a>
     </strong>
     We've moved it to a new home while we push forward with Bootstrap 3. <a href="http://blog.getbootstrap.com/">Read the blog</a> for details.
   </div>
@@ -110,8 +110,7 @@
               
               
               
-               
-                 <li>
+                <li>
   <a href="#js-overview">Overview</a>
   <ul class="nav">
     <li><a href="#js-individual-compiled">Individual or compiled</a></li>
@@ -218,7 +217,7 @@
     </div>
 
     <h3 id="js-individual-compiled">Individual or compiled</h3>
-    <p>Plugins can be included individually (using bootstrap's individual <code>*.js</code> files, or all at once (using <code>bootstrap.js</code> or the minified <code>bootstrap.min.js</code>.</p>
+    <p>Plugins can be included individually (using Bootstrap's individual <code>*.js</code> files, or all at once (using <code>bootstrap.js</code> or the minified <code>bootstrap.min.js</code>.</p>
 
     <div class="bs-callout bs-callout-danger">
       <h4>Do not attempt to include both.</h4>
@@ -227,11 +226,11 @@
 
     <div class="bs-callout bs-callout-danger">
       <h4>Plugin dependencies</h4>
-      <p>Some plugins and CSS components depend on other plugins. If you include plugins individually, make sure to check for these dependencies in the docs.</p>
+      <p>Some plugins and CSS components depend on other plugins. If you include plugins individually, make sure to check for these dependencies in the docs. Also note that all plugins depend on jQuery (this means jQuery must be included <strong>before</strong> the plugin files).</p>
     </div>
 
     <h3 id="js-data-attrs">Data attributes</h3>
-    <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap's first class API and should be your first consideration when using a plugin.</p>
+    <p>You can use all Bootstrap plugins purely through the markup API without writing a single line of JavaScript. This is Bootstrap's first-class API and should be your first consideration when using a plugin.</p>
 
     <p>That said, in some situations it may be desirable to turn this functionality off. Therefore, we also provide the ability to disable the data attribute API by unbinding all events on the document namespaced with <code>data-api</code>. This looks like this:
 
@@ -266,13 +265,13 @@ $(<span class="string">"#myModal"</span>).modal(<span class="string">'show'</spa
     <p>Sometimes it is necessary to use Bootstrap plugins with other UI frameworks. In these circumstances, namespace collisions can occasionally occur. If this happens, you may call <code>.noConflict</code> on the plugin you wish to revert the value of.</p>
 
 <pre><code class="language-js"><span class="keyword">var</span> bootstrapButton = $.fn.button.noConflict() <span class="comment">// return $.fn.button to previously assigned value</span>
-$.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $().bootstrapBtn the bootstrap functionality</span></code></pre>
+$.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $().bootstrapBtn the Bootstrap functionality</span></code></pre>
 
 
 
     <h3 id="js-events">Events</h3>
     <p>Bootstrap provides custom events for most plugin's unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. <code>show</code>) is triggered at the start of an event, and its past participle form (ex. <code>shown</code>) is trigger on the completion of an action.</p>
-    <p>As of 3.0.0, all bootstrap events are namespaced.</p>
+    <p>As of 3.0.0, all Bootstrap events are namespaced.</p>
     <p>All infinitive events provide <code>preventDefault</code> functionality. This provides the ability to stop the execution of an action before it starts.</p>
 
 <pre><code class="language-js">$(<span class="string">'#myModal'</span>).on(<span class="string">'show.bs.modal'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> {</span>
@@ -298,7 +297,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
     <h3>About transitions</h3>
     <p>For simple transition effects, include <code>transition.js</code> once alongside the other JS files. If you're using the compiled (or minified) <code>bootstrap.js</code>, there is no need to include this&mdash;it's already there.</p>
     <h3>What's inside</h3>
-    <p>Transition.js is a basic helper for transitionEnd events as well as a css transition emulator. It's used by the other plugins to check for css transition support and to catch hanging transitions.</p>
+    <p>Transition.js is a basic helper for <code>transitionEnd</code> events as well as a CSS transition emulator. It's used by the other plugins to check for CSS transition support and to catch hanging transitions.</p>
   </div>
 
 
@@ -378,7 +377,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
 
             <hr>
 
-            <h4>Overflowing text to show optional scrollbar</h4>
+            <h4>Overflowing text to show scroll behavior</h4>
             <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
             <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
             <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
@@ -399,14 +398,14 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
     </div><!-- /.modal -->
 
     <div class="bs-example" style="padding-bottom: 24px;">
-      <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-large">Launch demo modal</a>
+      <a data-toggle="modal" href="#myModal" class="btn btn-primary btn-lg">Launch demo modal</a>
     </div><!-- /example -->
 
 <pre><code class="language-html">  &lt;!-- Button trigger modal --&gt;
-  &lt;a data-toggle=&quot;modal&quot; href=&quot;#myModal&quot; class=&quot;btn btn-primary btn-large&quot;&gt;Launch demo modal&lt;/a&gt;
+  &lt;a data-toggle=&quot;modal&quot; href=&quot;#myModal&quot; class=&quot;btn btn-primary btn-lg&quot;&gt;Launch demo modal&lt;/a&gt;
 
   &lt;!-- Modal --&gt;
-  &lt;div class=&quot;modal&quot; id=&quot;myModal&quot;&gt;
+  &lt;div class=&quot;modal fade&quot; id=&quot;myModal&quot;&gt;
     &lt;div class=&quot;modal-dialog&quot;&gt;
       &lt;div class=&quot;modal-content&quot;&gt;
         &lt;div class=&quot;modal-header&quot;&gt;
@@ -477,7 +476,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
            <td>remote</td>
            <td>path</td>
            <td>false</td>
-           <td><p>If a remote URL is provided, content will be loaded via jQuery's <code>load</code> method and injected into the <code>.modal-body</code>. If you're using the data api, you may alternatively use the <code>href</code> tag to specify the remote source. An example of this is shown below:</p>
+           <td><p>If a remote URL is provided, content will be loaded via jQuery's <code>load</code> method and injected into the <code>.modal-body</code>. If you're using the data api, you may alternatively use the <code>href</code> attribute to specify the remote source. An example of this is shown below:</p>
 
 <pre><code class="language-html">&lt;a data-toggle=&quot;modal&quot; href=&quot;remote.html&quot; data-target=&quot;#modal&quot;&gt;Click me&lt;/a&gt;</code></pre>
 
@@ -624,7 +623,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
       <ul class="nav nav-pills">
         <li class="active"><a href="#">Regular link</a></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
+          <a id="drop4" role="button" data-toggle="dropdown" href="#">Dropdown <b class="caret"></b></a>
           <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
@@ -634,7 +633,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
           </ul>
         </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" id="drop5" role="button" data-toggle="dropdown" href="#">Dropdown 2 <b class="caret"></b></a>
+          <a id="drop5" role="button" data-toggle="dropdown" href="#">Dropdown 2 <b class="caret"></b></a>
           <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
@@ -644,7 +643,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
           </ul>
         </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" id="drop6" role="button" data-toggle="dropdown" href="#">Dropdown 3 <b class="caret"></b></a>
+          <a id="drop6" role="button" data-toggle="dropdown" href="#">Dropdown 3 <b class="caret"></b></a>
           <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Action</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://twitter.com/fat">Another action</a></li>
@@ -663,7 +662,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
     <p>Add <code>data-toggle="dropdown"</code> to a link or button to toggle a dropdown.</p>
 
 <pre><code class="language-html">&lt;div class=&quot;dropdown&quot;&gt;
-  &lt;a class=&quot;dropdown-toggle&quot; data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt;Dropdown trigger&lt;/a&gt;
+  &lt;a data-toggle=&quot;dropdown&quot; href=&quot;#&quot;&gt;Dropdown trigger&lt;/a&gt;
   &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dLabel&quot;&gt;
     ...
   &lt;/ul&gt;
@@ -673,7 +672,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
           <p>To keep URLs intact, use the <code>data-target</code> attribute instead of <code>href="#"</code>.</p>
 
 <pre><code class="language-html">&lt;div class=&quot;dropdown&quot;&gt;
-  &lt;a class=&quot;dropdown-toggle&quot; id=&quot;dLabel&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot; data-target=&quot;#&quot; href=&quot;/page.html&quot;&gt;
+  &lt;a id=&quot;dLabel&quot; role=&quot;button&quot; data-toggle=&quot;dropdown&quot; data-target=&quot;#&quot; href=&quot;/page.html&quot;&gt;
     Dropdown &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
   &lt;/a&gt;
   &lt;ul class=&quot;dropdown-menu&quot; role=&quot;menu&quot; aria-labelledby=&quot;dLabel&quot;&gt;
@@ -695,7 +694,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
 
     <h3>Methods</h3>
     <h4>$().dropdown('toggle')</h4>
-    <p>A programmatic api for toggling menus for a given navbar or tabbed navigation.</p>
+    <p>Toggles the dropdown menu of a given navbar or tabbed navigation.</p>
   </div>
 
 
@@ -762,7 +761,7 @@ $.fn.bootstrapBtn = bootstrapButton            <span class="comment">// give $()
     <h3>Via JavaScript</h3>
     <p>Call the scrollspy via JavaScript:</p>
 
-<pre><code class="language-js">$(<span class="string">'#navbar-example'</span>).scrollspy()</code></pre>
+<pre><code class="language-js">$(<span class="string">'#navbar-example'</span>).scrollspy(options)</code></pre>
 
 
 
@@ -981,10 +980,10 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
     <h3>Four directions</h3>
     <div class="bs-example tooltip-demo">
       <div class="bs-example-tooltips">
-        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
-        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
-        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
         <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+        <button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
       </div>
     </div><!-- /example -->
 
@@ -1030,7 +1029,7 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
            <td>placement</td>
            <td>string | function</td>
            <td>'top'</td>
-           <td>how to position the tooltip - top | bottom | left | right | auto. <br> When "auto" is specified, it will dynamically reorient the tooltip. For example, if placment is "auto left", the tooltip will display to the left when possible, otherwise it will display right.</td>
+           <td>how to position the tooltip - top | bottom | left | right | auto. <br> When "auto" is specified, it will dynamically reorient the tooltip. For example, if placement is "auto left", the tooltip will display to the left when possible, otherwise it will display right.</td>
          </tr>
          <tr>
            <td>selector</td>
@@ -1042,7 +1041,7 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
            <td>title</td>
            <td>string | function</td>
            <td>''</td>
-           <td>default title value if <code>title</code> tag isn't present</td>
+           <td>default title value if <code>title</code> attribute isn't present</td>
          </tr>
          <tr>
            <td>trigger</td>
@@ -1211,23 +1210,23 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
 
     <h3>Live demo</h3>
     <div class="bs-example" style="padding-bottom: 24px;">
-      <a href="#" class="btn btn-large btn-danger" data-toggle="popover" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">Click to toggle popover</a>
+      <a href="#" class="btn btn-lg btn-danger" data-toggle="popover" title="A Title" data-content="And here's some amazing content. It's very engaging. right?">Click to toggle popover</a>
     </div>
 
     <h4>Four directions</h4>
     <div class="bs-example tooltip-demo">
       <div class="bs-example-tooltips">
+        <button type="button" class="btn btn-default" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+          Popover on left
+        </button>
         <button type="button" class="btn btn-default" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
           Popover on top
-        </button>
-        <button type="button" class="btn btn-default" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-          Popover on right
         </button>
         <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
           Popover on bottom
         </button>
-        <button type="button" class="btn btn-default" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-          Popover on left
+        <button type="button" class="btn btn-default" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+          Popover on right
         </button>
       </div>
     </div><!-- /example -->
@@ -1269,7 +1268,7 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
             <td>placement</td>
             <td>string | function</td>
             <td>'right'</td>
-            <td>how to position the popover - top | bottom | left | right | auto.<br> When "auto" is specified, it will dynamically reorient the popover. For example, if placment is "auto left", the tooltip will display to the left when possible, otherwise it will display right.</td>
+            <td>how to position the popover - top | bottom | left | right | auto.<br> When "auto" is specified, it will dynamically reorient the popover. For example, if placement is "auto left", the tooltip will display to the left when possible, otherwise it will display right.</td>
           </tr>
           <tr>
             <td>selector</td>
@@ -1498,7 +1497,7 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
       </button>
     </div><!-- /example -->
 
-<pre><code class="language-html">&lt;button type=&quot;button&quot; id=&quot;fat-btn&quot; data-loading-text=&quot;Loading...&quot; class=&quot;btn btn-primary&quot;&gt;
+<pre><code class="language-html">&lt;button type=&quot;button&quot; data-loading-text=&quot;Loading...&quot; class=&quot;btn btn-primary&quot;&gt;
   Loading state
 &lt;/button&gt;</code></pre>
 
@@ -1771,7 +1770,7 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
            <td>parent</td>
            <td>selector</td>
            <td>false</td>
-           <td>If selector then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior)</td>
+           <td>If selector then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior - this dependent on the <code>accordion-group</code> class)</td>
          </tr>
          <tr>
            <td>toggle</td>
@@ -2093,7 +2092,7 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
       <h4>Requires independent styling ;)</h4>
       <p>
         Affix toggles between three states/classes: <code>affix</code>, <code>affix-top</code>, and <code>affix-bottom</code>. You must provide the styles for these classes yourself (independent of this plugin).
-        The <code>affix-top</code> class should be in the regular flow of the document. The <code>affix</code> class should be fixed to the page. And <code>affix-bottom</code> should be positioned absolute. Note, <code>affix-bottom</code> is special in that the plugin will place the element with js relative to the <code>offset: { bottom: number }</code> option you've provided.
+        The <code>affix-top</code> class should be in the regular flow of the document. The <code>affix</code> class should be fixed to the page. And <code>affix-bottom</code> should be positioned absolute. Note, <code>affix-bottom</code> is special in that the plugin will place the element with JS relative to the <code>offset: { bottom: number }</code> option you've provided.
       </p>
     </div>
 
@@ -2142,9 +2141,6 @@ $(<span class="string">'#myTab li:eq(2) a'</span>).tab(<span class="string">'sho
       </div>
 
     </div>
-
-    <!-- Quick back to top -->
-    <a href="#" class="bs-top">Back to top</a>
 
     <!-- Footer
     ================================================== -->

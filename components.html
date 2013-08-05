@@ -24,8 +24,8 @@
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
-  <script src="/assets/js/html5shiv.js"></script>
-  <script src="/assets/js/respond.min.js"></script>
+  <script src="assets/js/html5shiv.js"></script>
+  <script src="assets/js/respond.min.js"></script>
 <![endif]-->
 
 <!-- Favicons -->
@@ -53,7 +53,7 @@
     <!-- Docs master nav -->
     <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
   <div class="container">
-    <a href="./" class="navbar-brand">Bootstrap 3 RC1</a>
+    <a href="index.html" class="navbar-brand">Bootstrap 3 RC1</a>
     <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
@@ -95,7 +95,7 @@
     <div class="bs-old-docs">
   <div class="container">
     <strong>
-      <a href="./2.3../">Looking for Bootstrap 2.3.2 docs?</a>
+      <a href="./2.3.index.html">Looking for Bootstrap 2.3.2 docs?</a>
     </strong>
     We've moved it to a new home while we push forward with Bootstrap 3. <a href="http://blog.getbootstrap.com/">Read the blog</a> for details.
   </div>
@@ -109,8 +109,7 @@
             <ul class="nav bs-sidenav">
               
               
-               
-                 <li>
+                <li>
   <a href="#dropdowns">Dropdowns</a>
   <ul class="nav">
     <li><a href="#dropdowns-example">Example</a></li>
@@ -135,6 +134,17 @@
     <li><a href="#btn-dropdowns-split">Split button dropdown</a></li>
     <li><a href="#btn-dropdowns-sizes">Button sizes</a></li>
     <li><a href="#btn-dropdowns-dropup">Dropup variation</a></li>
+  </ul>
+</li>
+<li>
+  <a href="#input-groups">Input groups</a>
+  <ul class="nav">
+    <li><a href="#input-groups-basic">Basic input group</a></li>
+    <li><a href="#input-groups-sizes">Sizing options</a></li>
+    <li><a href="#input-groups-checkboxes-radios">Checkbox and radios addons</a></li>
+    <li><a href="#input-groups-buttons">Button addons</a></li>
+    <li><a href="#input-groups-buttons-dropdowns">Buttons with dropdowns</a></li>
+    <li><a href="#input-groups-buttons-segmented">Segmented buttons</a></li>
   </ul>
 </li>
 <li>
@@ -181,12 +191,17 @@
     <li><a href="#type-components-page-header">Page header</a></li>
   </ul>
 </li>
-<li><a href="#thumbnails">Thumbnails</a></li>
+<li>
+  <a href="#thumbnails">Thumbnails</a>
+  <ul class="nav">
+    <li><a href="#thumbnails-default">Default thumbnails</a></li>
+    <li><a href="#thumbnails-custom-content">Custom content</a></li>
+  </ul>
+</li>
 <li>
   <a href="#alerts">Alerts</a>
   <ul class="nav">
     <li><a href="#alerts-default">Default alert</a></li>
-    <li><a href="#alerts-block">Block alerts</a></li>
     <li><a href="#alerts-alternatives">Contextual alternatives</a></li>
     <li><a href="#alerts-links">Links in alerts</a></li>
   </ul>
@@ -201,7 +216,13 @@
     <li><a href="#progress-stacked">Stacked</a></li>
   </ul>
 </li>
-<li><a href="#media">Media object</a></li>
+<li>
+  <a href="#media">Media object</a>
+  <ul class="nav">
+    <li><a href="#media-default">Default media</a></li>
+    <li><a href="#media-list">Media list</a></li>
+  </ul>
+</li>
 <li>
   <a href="#list-group">List group</a>
   <ul class="nav">
@@ -279,7 +300,7 @@
 
 
     <h3 id="dropdowns-headers">Dropdown headers</h3>
-    <p>Add a header to break up label sections of actions in any dropdown menu.</p>
+    <p>Add a header to label sections of actions in any dropdown menu.</p>
     <div class="bs-example">
       <div class="dropdown clearfix">
         <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
@@ -388,12 +409,11 @@
 
 
     <h3 id="btn-groups-nested">Nested button groups</h3>
-    <p>Place buttons groups within button groups when you want dropdown menus mixed with a series of buttons.</p>
+    <p>Place a <code>.btn-group</code> within another <code>.btn-group</code> when you want dropdown menus mixed with a series of buttons.</p>
     <div class="bs-example">
       <div class="btn-group">
         <button type="button" class="btn btn-default">1</button>
         <button type="button" class="btn btn-default">2</button>
-        <button type="button" class="btn btn-default">3</button>
 
         <div class="btn-group">
           <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -403,11 +423,28 @@
           <ul class="dropdown-menu">
             <li><a href="#">Dropdown link</a></li>
             <li><a href="#">Dropdown link</a></li>
-            <li><a href="#">Dropdown link</a></li>
-           </ul>
+          </ul>
         </div>
       </div>
     </div>
+
+<pre><code class="language-html">&lt;div class=&quot;btn-group&quot;&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;1&lt;/button&gt;
+  &lt;button type=&quot;button&quot; class=&quot;btn btn-default&quot;&gt;2&lt;/button&gt;
+
+  &lt;div class=&quot;btn-group&quot;&gt;
+    &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;
+      Dropdown
+      &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+    &lt;/button&gt;
+    &lt;ul class=&quot;dropdown-menu&quot;&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
 
     <h3 id="btn-groups-vertical">Vertical button groups</h3>
     <p>Make a set of buttons appear vertically stacked rather than horizontally.</p>
@@ -437,8 +474,8 @@
     <div class="bs-example">
       <div class="btn-group btn-group-justified">
         <a href="#" class="btn btn-default">Left</a>
-        <a href="#" class="btn btn-default">Right</a>
         <a href="#" class="btn btn-default">Middle</a>
+        <a href="#" class="btn btn-default">Right</a>
       </div>
     </div>
 
@@ -466,7 +503,7 @@
     </div>
 
     <h3 id="btn-dropdowns-single">Single button dropdowns</h3>
-    <p>Turn a button into dropdown toggle with some basic markup changes.</p>
+    <p>Turn a button into a dropdown toggle with some basic markup changes.</p>
     <div class="bs-example">
       <div class="btn-toolbar" style="margin-bottom: 10px;">
         <div class="btn-group">
@@ -622,7 +659,7 @@
     <div class="bs-example">
       <div class="btn-toolbar" style="margin: 0;">
         <div class="btn-group">
-          <button class="btn btn-default btn-large dropdown-toggle" type="button" data-toggle="dropdown">
+          <button class="btn btn-default btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
             Large button <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
@@ -634,8 +671,20 @@
           </ul>
         </div><!-- /btn-group -->
         <div class="btn-group">
-          <button class="btn btn-default btn-small dropdown-toggle" type="button" data-toggle="dropdown">
+          <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
             Small button <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </div><!-- /btn-group -->
+        <div class="btn-group">
+          <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown">
+            Extra small button <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
@@ -650,7 +699,7 @@
 
 <pre><code class="language-html">&lt;!-- Large button group --&gt;
 &lt;div class=&quot;btn-group&quot;&gt;
-  &lt;button class=&quot;btn btn-default btn-large dropdown-toggle&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot;&gt;
+  &lt;button class=&quot;btn btn-default btn-lg dropdown-toggle&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot;&gt;
     Large button &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
   &lt;/button&gt;
   &lt;ul class=&quot;dropdown-menu&quot;&gt;
@@ -660,13 +709,22 @@
 
 &lt;!-- Small button group --&gt;
 &lt;div class=&quot;btn-group&quot;&gt;
-  &lt;button class=&quot;btn btn-default btn-small dropdown-toggle&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot;&gt;
+  &lt;button class=&quot;btn btn-default btn-sm dropdown-toggle&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot;&gt;
     Small button &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
   &lt;/button&gt;
   &lt;ul class=&quot;dropdown-menu&quot;&gt;
     ...
   &lt;/ul&gt;
 &lt;/div&gt;
+
+&lt;!-- Extra small button group --&gt;
+&lt;div class=&quot;btn-group&quot;&gt;
+  &lt;button class=&quot;btn btn-default btn-xs dropdown-toggle&quot; type=&quot;button&quot; data-toggle=&quot;dropdown&quot;&gt;
+    Extra small button &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;
+  &lt;/button&gt;
+  &lt;ul class=&quot;dropdown-menu&quot;&gt;
+    ...
+  &lt;/ul&gt;
 &lt;/div&gt;</code></pre>
 
 
@@ -713,6 +771,321 @@
 
 
   </div>
+
+
+
+
+  <!-- Input groups
+  ================================================== -->
+  <div class="bs-docs-section">
+    <div class="page-header">
+      <h1 id="input-groups">Input groups</h1>
+    </div>
+    <p class="lead">Extend form controls by adding text or buttons before, after, or on both sides of any text-based input. Use <code>.input-group</code> with an <code>.input-group-addon</code> to prepend or append elements to a <code>.form-control</code>.</p>
+
+    <div class="bs-callout bs-callout-danger">
+      <h4>Cross-browser compatibility</h4>
+      <p>Avoid using <code>&lt;select&gt;</code> elements here as they cannot be fully styled in WebKit browsers.</p>
+    </div>
+    <div class="bs-callout bs-callout-info">
+      <h4>Tooltips &amp; popovers in input groups require special setting</h4>
+      <p>When using tooltips or popovers on elements within an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the tooltip or popover is triggered).</p>
+    </div>
+
+    <h2 id="input-groups-basic">Basic input group</h2>
+    <form class="bs-example bs-example-form">
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="text" class="form-control" placeholder="Username">
+      </div>
+      <br>
+      <div class="input-group">
+        <input type="text" class="form-control">
+        <span class="input-group-addon">.00</span>
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">$</span>
+        <input type="text" class="form-control">
+        <span class="input-group-addon">.00</span>
+      </div>
+    </form>
+
+<pre><code class="language-html">&lt;div class=&quot;input-group&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;$&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;.00&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+
+
+    <h2 id="input-groups-sizes">Optional sizes</h2>
+    <p>Add the relative form sizing classes to the <code>.input-group-addon</code>.</p>
+    <form class="bs-example bs-example-form">
+      <div class="input-group">
+        <span class="input-group-addon input-lg">@</span>
+        <input type="text" class="form-control input-lg" placeholder="Username">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon">@</span>
+        <input type="text" class="form-control" placeholder="Username">
+      </div>
+      <br>
+      <div class="input-group">
+        <span class="input-group-addon input-sm">@</span>
+        <input type="text" class="form-control input-sm" placeholder="Username">
+      </div>
+    </form>
+
+<pre><code class="language-html">&lt;div class=&quot;input-group&quot;&gt;
+  &lt;span class=&quot;input-group-addon input-lg&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control input-lg&quot; placeholder=&quot;Username&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;span class=&quot;input-group-addon&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot; placeholder=&quot;Username&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;span class=&quot;input-group-addon input-sm&quot;&gt;@&lt;/span&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control input-sm&quot; placeholder=&quot;Username&quot;&gt;
+&lt;/div&gt;</code></pre>
+
+
+
+
+    <h2 id="input-groups-checkboxes-radios">Checkboxes and radio buttons</h2>
+    <p>Place any checkbox or radio option within an input group's addon instead of text.</p>
+    <form class="bs-example bs-example-form">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="checkbox">
+            </span>
+            <input type="text" class="form-control">
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-addon">
+              <input type="radio">
+            </span>
+            <input type="text" class="form-control">
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+    </form>
+
+<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-6&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;span class=&quot;input-group-addon&quot;&gt;
+        &lt;input type=&quot;checkbox&quot;&gt;
+      &lt;/span&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
+  &lt;div class=&quot;col-lg-6&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;span class=&quot;input-group-addon&quot;&gt;
+        &lt;input type=&quot;radio&quot;&gt;
+      &lt;/span&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
+&lt;/div&gt;&lt;!-- /.row --&gt;</code></pre>
+
+
+
+
+    <h2 id="input-groups-buttons">Buttons instead of text</h2>
+    <p>Buttons in input groups are a bit different and require one extra level of nesting. Instead of <code>.input-group-addon</code>, you'll need to use <code>.input-group-btn</code> to wrap the buttons. This is required due to default browser styles that cannot be overridden.</p>
+    <form class="bs-example bs-example-form">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+            <input type="text" class="form-control">
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">Go!</button>
+            </span>
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+    </form>
+
+<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-6&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;span class=&quot;input-group-btn&quot;&gt;
+        &lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot;&gt;Go!&lt;/button&gt;
+      &lt;/span&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
+  &lt;div class=&quot;col-lg-6&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+      &lt;span class=&quot;input-group-btn&quot;&gt;
+        &lt;button class=&quot;btn btn-default&quot; type=&quot;button&quot;&gt;Go!&lt;/button&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
+&lt;/div&gt;&lt;!-- /.row --&gt;</code></pre>
+
+
+
+    <h2 id="input-groups-buttons-dropdowns">Buttons with dropdowns</h2>
+    <p></p>
+    <form class="bs-example bs-example-form">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div><!-- /btn-group -->
+            <input type="text" class="form-control">
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" class="form-control">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div><!-- /btn-group -->
+          </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+    </form>
+
+<pre><code class="language-html">&lt;div class=&quot;row&quot;&gt;
+  &lt;div class=&quot;col-lg-6&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;div class=&quot;input-group-btn&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Action &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;&lt;!-- /btn-group --&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
+  &lt;div class=&quot;col-lg-6&quot;&gt;
+    &lt;div class=&quot;input-group&quot;&gt;
+      &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+      &lt;div class=&quot;input-group-btn&quot;&gt;
+        &lt;button type=&quot;button&quot; class=&quot;btn btn-default dropdown-toggle&quot; data-toggle=&quot;dropdown&quot;&gt;Action &lt;span class=&quot;caret&quot;&gt;&lt;/span&gt;&lt;/button&gt;
+        &lt;ul class=&quot;dropdown-menu pull-right&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Action&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Another action&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&quot;divider&quot;&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot;&gt;Separated link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;&lt;!-- /btn-group --&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /.col-lg-6 --&gt;
+&lt;/div&gt;&lt;!-- /.row --&gt;</code></pre>
+
+
+
+    <h2 id="input-groups-buttons-segmented">Segmented dropdown groups</h2>
+    <form class="bs-example bs-example-form">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default" tabindex="-1">Action</button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+            <input type="text" class="form-control">
+          </div><!-- /.input-group -->
+        </div><!-- /.col-lg-6 -->
+        <div class="col-lg-6">
+          <div class="input-group">
+            <input type="text" class="form-control">
+            <div class="input-group-btn">
+              <button type="button" class="btn btn-default" tabindex="-1">Action</button>
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu pull-right">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+          </div><!-- /.input-group -->
+        </div><!-- /.col-lg-6 -->
+      </div><!-- /.row -->
+    </form>
+
+<pre><code class="language-html">&lt;div class=&quot;input-group&quot;&gt;
+  &lt;div class=&quot;input-group-btn&quot;&gt;
+    &lt;!-- Button and dropdown menu --&gt;
+  &lt;/div&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;input-group&quot;&gt;
+  &lt;input type=&quot;text&quot; class=&quot;form-control&quot;&gt;
+  &lt;div class=&quot;input-group-btn btn-group&quot;&gt;
+    &lt;!-- Button and dropdown menu --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+
+
+
+</div>
 
 
 
@@ -1401,10 +1774,10 @@
 
 
     <h3>Sizes</h3>
-    <p>Fancy larger or smaller pagination? Add <code>.pagination-large</code> or <code>.pagination-small</code>  for additional sizes.</p>
+    <p>Fancy larger or smaller pagination? Add <code>.pagination-lg</code> or <code>.pagination-sm</code> for additional sizes.</p>
     <div class="bs-example">
       <div>
-        <ul class="pagination pagination-large">
+        <ul class="pagination pagination-lg">
           <li><a href="#">&laquo;</a></li>
           <li><a href="#">1</a></li>
           <li><a href="#">2</a></li>
@@ -1426,7 +1799,7 @@
         </ul>
       </div>
       <div>
-        <ul class="pagination pagination-small">
+        <ul class="pagination pagination-sm">
           <li><a href="#">&laquo;</a></li>
           <li><a href="#">1</a></li>
           <li><a href="#">2</a></li>
@@ -1438,9 +1811,9 @@
       </div>
     </div>
 
-<pre><code class="language-html">&lt;ul class=&quot;pagination pagination-large&quot;&gt;...&lt;/ul&gt;
+<pre><code class="language-html">&lt;ul class=&quot;pagination pagination-lg&quot;&gt;...&lt;/ul&gt;
 &lt;ul class=&quot;pagination pagination&quot;&gt;...&lt;/ul&gt;
-&lt;ul class=&quot;pagination pagination-small&quot;&gt;...&lt;/ul&gt;</code></pre>
+&lt;ul class=&quot;pagination pagination-sm&quot;&gt;...&lt;/ul&gt;</code></pre>
 
 
 
@@ -1622,14 +1995,14 @@
       <div class="jumbotron">
         <h1>Hello, world!</h1>
         <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <p><a class="btn btn-primary btn-large">Learn more</a></p>
+        <p><a class="btn btn-primary btn-lg">Learn more</a></p>
       </div>
     </div>
 
 <pre><code class="language-html">&lt;div class=&quot;jumbotron&quot;&gt;
   &lt;h1&gt;Hello, world!&lt;/h1&gt;
   &lt;p&gt;...&lt;/p&gt;
-  &lt;p&gt;&lt;a class=&quot;btn btn-primary btn-large&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;a class=&quot;btn btn-primary btn-lg&quot;&gt;Learn more&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 
 
@@ -1659,7 +2032,7 @@
     </div>
     <p class="lead">Extend Bootstrap's <a href="../css/#grid">grid system</a> with the thumbnail component to easily display grids of images, videos, text, and more.</p>
 
-    <h3>Default thumbnails</h3>
+    <h3 id="thumbnails-default">Default thumbnails</h3>
     <p>By default, Bootstrap's thumbnails are designed to showcase linked images with minimal required markup.</p>
     <div class="bs-example">
       <div class="row">
@@ -1697,7 +2070,7 @@
 
 
 
-    <h3>Custom content thumbnails</h3>
+    <h3 id="thumbnails-custom-content">Custom content thumbnails</h3>
     <p>With a bit of extra markup, it's possible to add any kind of HTML content like headings, paragraphs, or buttons into thumbnails.</p>
     <div class="bs-example">
       <div class="row">
@@ -1779,24 +2152,6 @@
 <pre><code class="language-html">&lt;div class=&quot;alert&quot;&gt;
   &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot;&gt;&amp;times;&lt;/button&gt;
   &lt;strong&gt;Warning!&lt;/strong&gt; Best check yo self, you&#39;re not looking too good.
-&lt;/div&gt;</code></pre>
-
-
-
-    <h3 id="alerts-block">Block alerts</h3>
-    <p>For longer messages, increase the padding on the top and bottom of the alert wrapper by adding <code>.alert-block</code>.</p>
-    <div class="bs-example">
-      <div class="alert alert-block">
-        <button type="button" class="close" data-dismiss="alert">&times;</button>
-        <h4>Warning!</h4>
-        <p>Best check yo self, you're not looking too good. Nulla vitae elit libero, a pharetra augue. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
-      </div>
-    </div>
-
-<pre><code class="language-html">&lt;div class=&quot;alert alert-block&quot;&gt;
-  &lt;button type=&quot;button&quot; class=&quot;close&quot; data-dismiss=&quot;alert&quot;&gt;&amp;times;&lt;/button&gt;
-  &lt;h4&gt;Warning!&lt;/h4&gt;
-  &lt;p&gt;...&lt;/p&gt;
 &lt;/div&gt;</code></pre>
 
 
@@ -1992,7 +2347,7 @@
     </div>
     <p class="lead">Abstract object styles for building various types of components (like blog comments, Tweets, etc) that feature a left- or right-aligned image alongside textual content.</p>
 
-    <h3>Default example</h3>
+    <h3 id="media-default">Default media</h3>
     <p>The default media allow to float a media object (images, video, audio) to the left or right of a content block.</p>
     <div class="bs-example">
       <div class="media">
@@ -2036,7 +2391,7 @@
 
 
 
-    <h3>Media list</h3>
+    <h3 id="media-list">Media list</h3>
     <p>With a bit of extra markup, you can use media inside list (useful for comment threads or articles lists).</p>
     <div class="bs-example">
       <ul class="media-list">
@@ -2353,7 +2708,7 @@
         <p>Some default panel content here. Nulla vitae elit libero, a pharetra augue. Aenean lacinia bibendum nulla sed consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
 
         <!-- List group -->
-        <ul class="list-group list-group-flush">
+        <ul class="list-group">
           <li class="list-group-item">Cras justo odio</li>
           <li class="list-group-item">Dapibus ac facilisis in</li>
           <li class="list-group-item">Morbi leo risus</li>
@@ -2369,7 +2724,7 @@
   &lt;p&gt;...&lt;/p&gt;
 
   &lt;!-- List group --&gt;
-  &lt;ul class=&quot;list-group list-group-flush&quot;&gt;
+  &lt;ul class=&quot;list-group&quot;&gt;
     &lt;li class=&quot;list-group-item&quot;&gt;Cras justo odio&lt;/li&gt;
     &lt;li class=&quot;list-group-item&quot;&gt;Dapibus ac facilisis in&lt;/li&gt;
     &lt;li class=&quot;list-group-item&quot;&gt;Morbi leo risus&lt;/li&gt;
@@ -2407,22 +2762,22 @@
     <h3>Optional classes</h3>
     <p>Control padding and rounded corners with two optional modifier classes.</p>
     <div class="bs-example">
-      <div class="well well-large">
+      <div class="well well-lg">
         Look, I'm in a well!
       </div>
     </div>
 
-<pre><code class="language-html">&lt;div class=&quot;well well-large&quot;&gt;...&lt;/div&gt;</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;well well-lg&quot;&gt;...&lt;/div&gt;</code></pre>
 
 
 
     <div class="bs-example">
-      <div class="well well-small">
+      <div class="well well-sm">
         Look, I'm in a well!
       </div>
     </div>
 
-<pre><code class="language-html">&lt;div class=&quot;well well-small&quot;&gt;...&lt;/div&gt;</code></pre>
+<pre><code class="language-html">&lt;div class=&quot;well well-sm&quot;&gt;...&lt;/div&gt;</code></pre>
 
 
   </div>
@@ -2431,9 +2786,6 @@
       </div>
 
     </div>
-
-    <!-- Quick back to top -->
-    <a href="#" class="bs-top">Back to top</a>
 
     <!-- Footer
     ================================================== -->
