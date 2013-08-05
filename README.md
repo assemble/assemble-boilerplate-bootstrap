@@ -12,7 +12,7 @@ _You must have [NPM](npmjs.org), [Bower][bower] and [Grunt][grunt] installed glo
 
 ### First
 
-* Either **[Downlaod][download]** this project,
+* Either **[download][download]** this project,
 * Or `git clone https://github.com/assemble/assemble-bootstrap.git`
 * Or run `bower install assemble-bootstrap`
 
