@@ -1,6 +1,6 @@
 # assemble-bootstrap
 
-> Build Bootstrap with [Assemble][assemble] instead of Jekyll.
+> Build [Bootstrap](https://github.com/twbs/bootstrap) with [Assemble][assemble] instead of Jekyll.
 
 #### [See it live →](http://assemble.github.io/assemble-bootstrap/)
 
@@ -11,9 +11,9 @@
 _You must have NPM, Bower and Grunt installed globally before you begin._
 
 From the command line:
-* **Download**: Either [download this project][download], `git clone`, or run `bower install assemble-bootstrap`. then `cd` into the project
-* **Install Bootstrap and dependencies**: Run `npm i && bower install && cd vendor/bootstrap && npm i`
-* **Build**: With the depencies successfully installed, you may now run `grunt` to build the project.
+1. **[Downlaod][download]** this project or run `bower install assemble-bootstrap`, then `cd` into the project
+2. **Install Bootstrap and dependencies**: Run `npm i && bower install && cd vendor/bootstrap && npm i`
+3. **Build**: With the depencies successfully installed, you may now run `grunt` to build the project.
 
 _Note that if you want to get the absolute latest, bleeding edge Bootstrap you will need to do `git clone https://github.com/twbs/bootstrap.git "vendor/bootstrap"`, since `bower install` only installs the **latest tagged version** (when a repo uses tags)._
 
