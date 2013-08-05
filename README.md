@@ -23,6 +23,7 @@ npm i && bower install && cd vendor/bootstrap && npm i
 
 Now run `grunt` to build the project.
 
+_Follow that if you want to get the absolute latest, bleeding edge Bootstrap you will need to do `git clone https://github.com/twbs/bootstrap.git "vendor/bootstrap"`, since Bower will only install the **latest tagged version** when a repo uses tags._
 
 <!-- More about [the built-in Gruntfile commands](https://github.com/assemble/assemble-bootstrap/issues/7). -->
 
