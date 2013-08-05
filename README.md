@@ -4,11 +4,12 @@
 
 #### [See it live →](http://assemble.github.io/assemble-bootstrap/)
 
-This is _not a fork or port_ of Bootstrap. This project uses Bootstrap's Gruntfile for compiling CSS and JavaScript, running tests, and all of the other tasks  to buid with a couple enhancements:
+This is _not a fork or port_ of Bootstrap. This project uses Bootstrap's own Gruntfile for compiling CSS and JavaScript, running tests, and all of the other tasks.
 
-* Pulls down the latest Bootstrap,
+This project simply:
+
 * Converts the liquid templates to Handlebars
-* Builds the HTML from templates using [Assemble][assemble]. The rest of the project, CSS, JavaScript etc. is mostly unchanged from Bootstrap's Gruntfile configuration.
+* Builds the HTML from templates using [Assemble][assemble].
 
 _You must have NPM, Bower and Grunt install globally before you begin._
 
@@ -23,7 +24,7 @@ npm install && bower install && cd vendor/bootstrap && npm install
 Now run `grunt` to build the project.
 
 
-More about [the built-in Grunt commands](https://github.com/assemble/assemble-bootstrap/issues/7).
+<!-- More about [the built-in Gruntfile commands](https://github.com/assemble/assemble-bootstrap/issues/7). -->
 
 
 ## The "assemble" task
@@ -35,35 +36,26 @@ In the project's Gruntfile, the example `assemble` task is pre-loaded with paths
 ```js
 assemble: {
   options: {
-    site: '<%= site %>', // Load data from Bootstrap's _config.yml
+    site: '<%= site %>',
     flatten: true,
-    assets: 'assets',
-    partials: 'src/_includes/*.hbs',
-    layoutdir: 'src/_layouts',
+    assets: 'tmp/assets',
+    partials: 'tmp/_includes/*.hbs',
+    layoutdir: 'tmp/_layouts',
     layout: 'default.hbs'
   },
   docs: {
-    src: ['src/*.hbs'],
-    dest: '<%= site.destination %>/'
+    src: ['tmp/*.hbs'],
+    dest: 'tmp/'
   }
 }
 ```
 
-## Under the Hood
-
-The only thing this project does is convert liquid templates
-
-## Authors
+## Author
 
 **Jon Schlinkert**
 
 + [http://github.com/jonschlinkert](http://github.com/jonschlinkert)
 + [http://twitter.com/jonschlinkert](http://twitter.com/jonschlinkert)
-
-**Brian Woodward**
-
-+ [http://github.com/doowb](http://github.com/doowb)
-+ [http://twitter.com/doowb](http://twitter.com/doowb)
 
 
 ## Contributing
