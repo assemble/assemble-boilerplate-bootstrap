@@ -8,7 +8,7 @@
 * Builds the HTML from templates using [Assemble][assemble].
 
 ## Quickstart
-_You must have NPM, Bower and Grunt installed globally before you begin._
+_You must have [NPM](npmjs.org), [Bower][bower] and [Grunt][grunt] installed globally before you begin._
 
 First, **[Downlaod][download]** this project, `git clone https://github.com/assemble/assemble-bootstrap.git` or run `bower install assemble-bootstrap`.
 
@@ -45,6 +45,71 @@ assemble: {
 }
 ```
 
+## Options #2
+
+```bash
+npm i assemble assemble-bootstrap --save-dev
+```
+
+Once this plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
+
+```bash
+grunt.loadNpmTasks('grunt-contrib-less');
+```
+
+## The "refactor" task
+
+This task converts Bootstrap's liquid templates to Handlebars templates. To use the task add the following configuration to the Gruntfile:
+
+```js
+// Regex for refactor task.
+replacements: require('./node_modules/assemble-bootstrap/tasks/replacements').init(grunt),
+
+// Refactor Liquid to Handlebars so we can
+// build with Assemble instead of Jekyll
+refactor: {
+  liquid: {
+    options: {
+      replacements: '<%= replacements.regex.patterns %>'
+    },
+    files: [{
+        expand: true,
+        cwd: 'vendor/bootstrap',
+        src: ['*.html', '_layouts/*.html', '_includes/*.html', '!js/**'],
+        dest: '<%= site.destination %>/src/',
+        ext: '.hbs'
+      }
+    ]
+  }
+}
+```
+
+
+## The "assemble" task
+If you haven't used [Assemble][assemble] before, please visit [http://assemble.io/docs](http://assemble.io/docs) to learn how to customize the task.
+
+### Overview
+In the project's Gruntfile, the example `assemble` task is pre-loaded with paths and options to build the project successfully:
+
+```js
+assemble: {
+  options: {
+    site: '<%= site %>',
+    flatten: true,
+    assets: 'tmp/assets',
+    partials: 'tmp/_includes/*.hbs',
+    layoutdir: 'tmp/_layouts',
+    layout: 'default.hbs'
+  },
+  docs: {
+    src: ['tmp/*.hbs'],
+    dest: 'tmp/'
+  }
+}
+```
+
+
+
 ## Author
 
 **Jon Schlinkert**
@@ -67,6 +132,8 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 [assemble]: https://github.com/assemble/assemble/ "Assemble"
 [assemble-boilerplates]: https://github.com/assemble/assemble-boilerplates "Assemble Boilerplates"
 
+[bower]: https://github.com/bower/bower
+[grunt]: http://gruntjs.com
 [gruntfile]: http://gruntjs.com/sample-gruntfile
 [configuring tasks]: http://gruntjs.com/configuring-tasks
 [tasks-and-targets]: http://gruntjs.com/configuring-tasks#task-configuration-and-targets
