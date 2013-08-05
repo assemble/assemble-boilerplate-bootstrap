@@ -10,9 +10,15 @@
 ## Quickstart
 _You must have [NPM](npmjs.org), [Bower][bower] and [Grunt][grunt] installed globally before you begin._
 
-First, **[Downlaod][download]** this project, `git clone https://github.com/assemble/assemble-bootstrap.git` or run `bower install assemble-bootstrap`.
+### First
 
-Then, `cd` into the project and from the command line run:
+* Either **[Downlaod][download]** this project,
+* Or `git clone https://github.com/assemble/assemble-bootstrap.git`
+* Or run `bower install assemble-bootstrap`
+
+### Next
+
+`cd` into the project, and from the command line run:
 
 ```bash
 npm i && bower install && cd vendor/bootstrap && npm i
