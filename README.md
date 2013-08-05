@@ -10,12 +10,16 @@
 ## Quickstart
 _You must have NPM, Bower and Grunt installed globally before you begin._
 
-From the command line:
-1. **[Downlaod][download]** this project or run `bower install assemble-bootstrap`, then `cd` into the project
-2. **Install Bootstrap and dependencies**: Run `npm i && bower install && cd vendor/bootstrap && npm i`
-3. **Build**: With the depencies successfully installed, you may now run `grunt` to build the project.
+First, **[Downlaod][download]** this project, `git clone https://github.com/assemble/assemble-bootstrap.git` or run `bower install assemble-bootstrap`.
 
-_Note that if you want to get the absolute latest, bleeding edge Bootstrap you will need to do `git clone https://github.com/twbs/bootstrap.git "vendor/bootstrap"`, since `bower install` only installs the **latest tagged version** (when a repo uses tags)._
+Then, `cd` into the project and from the command line run:
+
+```bash
+npm i && bower install && cd vendor/bootstrap && npm i
+```
+You may now run `grunt` to build the project.
+
+_Note that if you want to get the absolute latest, bleeding edge Bootstrap you will need to use `git clone https://github.com/twbs/bootstrap.git 'vendor/bootstrap'` instead of `bower install`._
 
 
 ## The "assemble" task
