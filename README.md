@@ -4,32 +4,22 @@
 
 #### [See it live →](http://assemble.github.io/assemble-bootstrap/)
 
-This is _not a fork or port_ of Bootstrap. This project uses Bootstrap's own Gruntfile for compiling CSS and JavaScript, running tests, and all of the other tasks.
-
-This project simply:
-
 * Converts the liquid templates to Handlebars
 * Builds the HTML from templates using [Assemble][assemble].
 
-_You must have NPM, Bower and Grunt install globally before you begin._
+## Quickstart
+_You must have NPM, Bower and Grunt installed globally before you begin._
 
-## 60 Second Quickstart
+From the command line:
+* **Download**: Either [download this project][download], `git clone`, or run `bower install assemble-bootstrap`. then `cd` into the project
+* **Install Bootstrap and dependencies**: Run `npm i && bower install && cd vendor/bootstrap && npm i`
+* **Build**: With the depencies successfully installed, you may now run `grunt` to build the project.
 
-After you download this project, `cd` into the project dir, then copy/paste and run the following command to install [Bootstrap](https://github.com/twbs/bootstrap), [Grunt.js](http://gruntjs.com/), [Assemble][assemble] and all of the necessary dependencies:
-
-```bash
-npm i && bower install && cd vendor/bootstrap && npm i
-```
-
-Now run `grunt` to build the project.
-
-_Follow that if you want to get the absolute latest, bleeding edge Bootstrap you will need to do `git clone https://github.com/twbs/bootstrap.git "vendor/bootstrap"`, since Bower will only install the **latest tagged version** when a repo uses tags._
-
-<!-- More about [the built-in Gruntfile commands](https://github.com/assemble/assemble-bootstrap/issues/7). -->
+_Note that if you want to get the absolute latest, bleeding edge Bootstrap you will need to do `git clone https://github.com/twbs/bootstrap.git "vendor/bootstrap"`, since `bower install` only installs the **latest tagged version** (when a repo uses tags)._
 
 
 ## The "assemble" task
-If you haven't used [Assemble][assemble] before, it might be worthwhile to visit [http://assemble.io/docs](http://assemble.io/docs) if you need help building the project or learning how to customize it.
+If you haven't used [Assemble][assemble] before, please visit [http://assemble.io/docs](http://assemble.io/docs) to learn how to customize the task.
 
 ### Overview
 In the project's Gruntfile, the example `assemble` task is pre-loaded with paths and options to build the project successfully:
@@ -68,7 +58,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * 2013-07-16    v0.1.0    First commit.
 
 
-[download]: https://github.com/assemble/assemble-bootstrap/archive/3.0.0-wip.zip "Download Assemble"
+[download]: https://github.com/assemble/assemble-bootstrap/archive/master.zip "Download assemble-bootstrap"
 [helpers]: https://github.com/assemble/handlebars-helpers "Handlebars Helpers"
 [assemble]: https://github.com/assemble/assemble/ "Assemble"
 [assemble-boilerplates]: https://github.com/assemble/assemble-boilerplates "Assemble Boilerplates"
