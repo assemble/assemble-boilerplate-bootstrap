@@ -15,6 +15,7 @@ module.exports = function(grunt) {
 
     // Load Bootstrap's config data.
     site: grunt.file.readYAML('vendor/bootstrap/_config.yml'),
+    pkg: grunt.file.readJSON('package.json'),
 
     // Run Bootstrap's own Gruntfile.
     subgrunt: {
@@ -23,11 +24,11 @@ module.exports = function(grunt) {
         src: ['vendor/bootstrap']
       },
       js: {
-        options: {task: 'dist-js'},
+        options: {task: 'concat:bootstrap'},
         src: ['vendor/bootstrap']
       },
       css: {
-        options: {task: 'dist-css'},
+        options: {task: 'recess:bootstrap'},
         src: ['vendor/bootstrap']
       },
       dist: {
@@ -63,6 +64,7 @@ module.exports = function(grunt) {
 
     assemble: {
       options: {
+        pkg: '<%= pkg %>',
         site: '<%= site %>',
         flatten: true,
         assets: '<%= site.destination %>/assets',
@@ -106,5 +108,5 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', ['clean', 'subgrunt:dist', 'copy', 'refactor', 'assemble']);
+  grunt.registerTask('default', ['clean', 'subgrunt:js', 'subgrunt:css', 'copy', 'refactor', 'assemble']);
 };
