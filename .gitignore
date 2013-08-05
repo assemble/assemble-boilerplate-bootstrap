@@ -1,0 +1,5 @@
+src
+tmp
+vendor
+node_modules
+npm-debug.log

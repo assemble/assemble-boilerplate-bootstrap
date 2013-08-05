@@ -9,8 +9,8 @@
 
 <title>
   
-    Bootstrap
   
+    Customize and download &middot; Bootstrap
   
 </title>
 
@@ -48,7 +48,7 @@
 
     <!-- Place anything custom after this. -->
   </head>
-  <body class="bs-docs-home">
+  <body data-spy="scroll" data-target=".bs-sidebar">
 
     <!-- Docs master nav -->
     <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
@@ -73,7 +73,7 @@
         <li>
           <a href="./javascript.html">JavaScript</a>
         </li>
-        <li>
+        <li class="active">
           <a href="./customize.html">Customize</a>
         </li>
       </ul>
@@ -82,19 +82,14 @@
 </div>
 
 
-    <!-- Page content of course! -->
-    
-
-<div class="bs-masthead">
-  <div class="container">
-    <h1>Bootstrap 3</h1>
-    <p class="lead">Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.</p>
-    <p>
-      <a href="https://github.com/twbs/bootstrap/releases/download/v3.0.0-rc1/bs-v3.0.0-rc1-dist.zip" class="btn btn-bs btn-large" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Download', 'Download 3.0.0 RC1']);">Download Bootstrap</a>
-    </p>
-  </div>
-</div>
-
+    <!-- Docs page layout -->
+    <div class="bs-header">
+      <div class="container">
+        <h1>Customize and download</h1>
+        <p>Customize Bootstrap&#x27;s components, LESS variables, and jQuery plugins to get your very own version.</p>
+        <div id="carbonads-container"><div class="carbonad"><div id="azcarbon"></div><script type="text/javascript">var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = "http://engine.carbonads.com/z/32341/azcarbon_2_1_0_HORIZ"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script></div></div>
+      </div>
+    </div>
 
     <!-- Callout for the old docs link -->
     <div class="bs-old-docs">
@@ -107,7 +102,15 @@
 </div>
 
 
-    <div class="container">
+    <div class="bs-customize-placeholder">
+      <div class="container bs-docs-container">
+        <p class="lead">Until RC2, the Bootstrap 3 customizer will be disabled. In the mean time, snag the <a href="https://github.com/twbs/bootstrap/releases">compiled CSS and JavaScript</a>. Hang tight!</p>
+      </div>
+    </div>
+
+    <!-- Footer
+    ================================================== -->
+    <footer class="bs-footer">
       <div class="bs-social">
   <ul class="bs-social-buttons">
     <li>
@@ -126,21 +129,16 @@
 </div>
 
 
-      <ul class="bs-masthead-links">
-        <li>
-          <a href="https://github.com/twbs/bootstrap" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'GitHub project']);">GitHub project</a>
-        </li>
-        <li>
-          <a href="http://examples.getbootstrap.com" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Examples']);">Examples</a>
-        </li>
-        <li>
-          <a href="http://glyphicons.getbootstrap.com" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Glyphicons']);">Glyphicons</a>
-        </li>
-        <li>
-          <a href="http://expo.getbootstrap.com" onclick="_gaq.push(['_trackEvent', 'Jumbotron actions', 'Jumbotron links', 'Expo']);">Bootstrap Expo</a>
-        </li>
+      <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
+      <p>Code licensed under <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License v2.0</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+      <ul class="footer-links">
+        <li><a href="http://blog.getbootstrap.com">Blog</a></li>
+        <li class="muted">&middot;</li>
+        <li><a href="https://github.com/twbs/bootstrap/issues?state=open">Issues</a></li>
+        <li class="muted">&middot;</li>
+        <li><a href="https://github.com/twbs/bootstrap/releases">Releases</a></li>
       </ul>
-    </div>
+    </footer>
 
     <!-- JS and analytics only. -->
     <!-- Bootstrap core JavaScript
