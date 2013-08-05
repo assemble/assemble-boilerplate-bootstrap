@@ -45,6 +45,8 @@ assemble: {
 }
 ```
 
+<!--
+
 ## Options #2
 
 ```bash
@@ -107,7 +109,7 @@ assemble: {
   }
 }
 ```
-
+ -->
 
 
 ## Author
