@@ -54,7 +54,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'vendor/bootstrap',
             src: ['*.html', '_layouts/*.html', '_includes/*.html', '!js/**'],
-            dest: 'tmp/',
+            dest: '<%= site.destination %>/src/',
             ext: '.hbs'
           }
         ]
@@ -65,34 +65,34 @@ module.exports = function(grunt) {
       options: {
         site: '<%= site %>',
         flatten: true,
-        assets: 'tmp/assets',
-        partials: 'tmp/_includes/*.hbs',
-        layoutdir: 'tmp/_layouts',
+        assets: '<%= site.destination %>/assets',
+        partials: '<%= site.destination %>/src/_includes/*.hbs',
+        layoutdir: '<%= site.destination %>/src/_layouts',
         layout: 'default.hbs'
       },
       docs: {
-        src: ['tmp/*.hbs'],
-        dest: 'tmp/'
+        src: ['<%= site.destination %>/src/*.hbs'],
+        dest: '<%= site.destination %>/'
       }
     },
 
     copy: {
       libs: {
         files: {
-          'tmp/assets/js/highlight.js': ['vendor/highlightjs/highlight.pack.js'],
-          'tmp/assets/css/github.css':  ['vendor/highlightjs/styles/github.css']
+          '<%= site.destination %>/assets/js/highlight.js': ['vendor/highlightjs/highlight.pack.js'],
+          '<%= site.destination %>/assets/css/github.css':  ['vendor/highlightjs/styles/github.css']
         }
       },
       assets: {
         files: [
-          {expand: true, cwd: 'vendor/bootstrap',      src: ['assets/**'], dest: 'tmp/'},
-          {expand: true, cwd: 'vendor/bootstrap/dist', src: ['**'], dest: 'tmp/assets/'}
+          {expand: true, cwd: 'vendor/bootstrap/dist', src: ['**'], dest: '<%= site.destination %>/assets/'},
+          {expand: true, cwd: 'vendor/bootstrap', src: ['assets/**'], dest: '<%= site.destination %>/'}
         ]
       }
     },
 
     clean: {
-      dist: ['tmp/**']
+      dist: ['<%= site.destination %>/**/*', '!<%= site.destination %>/.{git,gitignore}']
     }
   });
 
@@ -106,5 +106,5 @@ module.exports = function(grunt) {
   grunt.loadTasks('tasks');
 
   // Default task.
-  grunt.registerTask('default', ['subgrunt:dist', 'copy', 'refactor', 'assemble']);
+  grunt.registerTask('default', ['clean', 'subgrunt:dist', 'copy', 'refactor', 'assemble']);
 };

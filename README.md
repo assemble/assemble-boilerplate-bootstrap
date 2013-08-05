@@ -18,7 +18,7 @@ _You must have NPM, Bower and Grunt install globally before you begin._
 After you download this project, `cd` into the project dir, then copy/paste and run the following command to install [Bootstrap](https://github.com/twbs/bootstrap), [Grunt.js](http://gruntjs.com/), [Assemble][assemble] and all of the necessary dependencies:
 
 ```bash
-npm install && bower install && cd vendor/bootstrap && npm install
+npm i && bower install && cd vendor/bootstrap && npm i
 ```
 
 Now run `grunt` to build the project.
