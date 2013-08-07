@@ -1,5 +1,5 @@
 {
-  "name": "assemble-bootstap",
+  "name": "assemble-bootstrap",
   "description": "Build Bootstrap using Assemble instead of Jekyll. Assemble is a site-generator built as a Grunt.js plugin, so it runs entirely on Node.js.",
   "version": "0.2.0",
   "homepage": "https://github.com/assemble/assemble-bootstap",
