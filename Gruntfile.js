@@ -109,4 +109,7 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['clean', 'subgrunt:js', 'subgrunt:css', 'copy', 'refactor', 'assemble']);
+
+  // Tests task.
+  grunt.registerTask('test', ['subgrunt:test']);
 };
