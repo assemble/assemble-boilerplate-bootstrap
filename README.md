@@ -1,8 +1,8 @@
-# assemble-bootstrap
+# boilerplate-bootstrap
 
 > Build [Bootstrap](https://github.com/twbs/bootstrap) with [Assemble][assemble] instead of Jekyll.
 
-#### [See it live →](http://assemble.github.io/assemble-bootstrap/)
+#### [See it live →](http://assemble.github.io/boilerplate-bootstrap/)
 
 * Converts the liquid templates to Handlebars
 * Builds the HTML from templates using [Assemble][assemble].
@@ -13,8 +13,8 @@ _You must have [NPM](npmjs.org), [Bower][bower] and [Grunt][grunt] installed glo
 ### First
 
 * Either **[download][download]** this project,
-* Or `git clone https://github.com/assemble/assemble-bootstrap.git`
-* Or run `bower install assemble-bootstrap`
+* Or `git clone https://github.com/assemble/boilerplate-bootstrap.git`
+* Or run `bower install boilerplate-bootstrap`
 
 ### Next
 
@@ -56,7 +56,7 @@ assemble: {
 ## Options #2
 
 ```bash
-npm i assemble assemble-bootstrap --save-dev
+npm i assemble boilerplate-bootstrap --save-dev
 ```
 
 Once this plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
@@ -71,7 +71,7 @@ This task converts Bootstrap's liquid templates to Handlebars templates. To use 
 
 ```js
 // Regex for refactor task.
-replacements: require('./node_modules/assemble-bootstrap/tasks/replacements').init(grunt),
+replacements: require('./node_modules/boilerplate-bootstrap/tasks/replacements').init(grunt),
 
 // Refactor Liquid to Handlebars so we can
 // build with Assemble instead of Jekyll
@@ -135,7 +135,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 * 2013-07-16    v0.1.0    First commit.
 
 
-[download]: https://github.com/assemble/assemble-bootstrap/archive/master.zip "Download assemble-bootstrap"
+[download]: https://github.com/assemble/boilerplate-bootstrap/archive/master.zip "Download boilerplate-bootstrap"
 [helpers]: https://github.com/assemble/handlebars-helpers "Handlebars Helpers"
 [assemble]: https://github.com/assemble/assemble/ "Assemble"
 [assemble-boilerplates]: https://github.com/assemble/assemble-boilerplates "Assemble Boilerplates"
