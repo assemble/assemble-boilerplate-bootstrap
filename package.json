@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-bootstrap",
-  "description": "Build Bootstrap with Assemble instead of Jekyll. Assemble is a site-generator built as a Grunt.js plugin, so it runs entirely on Node.js.",
+  "description": "Build Bootstrap with Assemble instead of Jekyll.",
   "version": "0.2.1",
   "homepage": "https://github.com/assemble/boilerplate-bootstrap",
   "author": [

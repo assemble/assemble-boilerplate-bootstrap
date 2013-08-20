@@ -1,6 +1,6 @@
 # boilerplate-bootstrap [![NPM version](https://badge.fury.io/js/boilerplate-bootstrap.png)](http://badge.fury.io/js/boilerplate-bootstrap)
 
-> Build Bootstrap with Assemble instead of Jekyll. Assemble is a site-generator built as a Grunt.js plugin, so it runs entirely on Node.js.
+> Build Bootstrap with Assemble instead of Jekyll.
 
 #### [See it live →](http://assemble.github.io/boilerplate-bootstrap/)
 
