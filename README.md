@@ -1,6 +1,6 @@
-# boilerplate-bootstrap
+# boilerplate-bootstrap [![NPM version](https://badge.fury.io/js/boilerplate-bootstrap.png)](http://badge.fury.io/js/boilerplate-bootstrap)
 
-> Build [Bootstrap](https://github.com/twbs/bootstrap) with [Assemble][assemble] instead of Jekyll.
+> Build Bootstrap with Assemble instead of Jekyll. Assemble is a site-generator built as a Grunt.js plugin, so it runs entirely on Node.js.
 
 #### [See it live →](http://assemble.github.io/boilerplate-bootstrap/)
 
@@ -23,15 +23,16 @@ _You must have [NPM](npmjs.org), [Bower][bower] and [Grunt][grunt] installed glo
 ```bash
 npm i && bower install && cd vendor/bootstrap && npm i
 ```
+
 You may now run `grunt` to build the project.
 
 _Note that if you want to get the absolute latest, bleeding edge Bootstrap you will need to use `git clone https://github.com/twbs/bootstrap.git 'vendor/bootstrap'` instead of `bower install`._
 
 
-## The "assemble" task
+### The "assemble" task
 If you haven't used [Assemble][assemble] before, please visit [http://assemble.io/docs](http://assemble.io/docs) to learn how to customize the task.
 
-### Overview
+#### Overview
 In the project's Gruntfile, the example `assemble` task is pre-loaded with paths and options to build the project successfully:
 
 ```js
@@ -51,74 +52,7 @@ assemble: {
 }
 ```
 
-<!--
-
-## Options #2
-
-```bash
-npm i assemble boilerplate-bootstrap --save-dev
-```
-
-Once this plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
-
-```bash
-grunt.loadNpmTasks('grunt-contrib-less');
-```
-
-## The "refactor" task
-
-This task converts Bootstrap's liquid templates to Handlebars templates. To use the task add the following configuration to the Gruntfile:
-
-```js
-// Regex for refactor task.
-replacements: require('./node_modules/boilerplate-bootstrap/tasks/replacements').init(grunt),
-
-// Refactor Liquid to Handlebars so we can
-// build with Assemble instead of Jekyll
-refactor: {
-  liquid: {
-    options: {
-      replacements: '<%= replacements.regex.patterns %>'
-    },
-    files: [{
-        expand: true,
-        cwd: 'vendor/bootstrap',
-        src: ['*.html', '_layouts/*.html', '_includes/*.html', '!js/**'],
-        dest: '<%= site.destination %>/src/',
-        ext: '.hbs'
-      }
-    ]
-  }
-}
-```
-
-
-## The "assemble" task
-If you haven't used [Assemble][assemble] before, please visit [http://assemble.io/docs](http://assemble.io/docs) to learn how to customize the task.
-
-### Overview
-In the project's Gruntfile, the example `assemble` task is pre-loaded with paths and options to build the project successfully:
-
-```js
-assemble: {
-  options: {
-    site: '<%= site %>',
-    flatten: true,
-    assets: 'tmp/assets',
-    partials: 'tmp/_includes/*.hbs',
-    layoutdir: 'tmp/_layouts',
-    layout: 'default.hbs'
-  },
-  docs: {
-    src: ['tmp/*.hbs'],
-    dest: 'tmp/'
-  }
-}
-```
- -->
-
-
-## Author
+#### Author
 
 **Jon Schlinkert**
 
@@ -133,6 +67,12 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 ## Release History
 * 2013-08-03    v0.2.0    Refactored to be awesome.
 * 2013-07-16    v0.1.0    First commit.
+
+
+***
+
+
+Project authored by [Jon Schlinkert](https://github.com/jonschlinkert/).
 
 
 [download]: https://github.com/assemble/boilerplate-bootstrap/archive/master.zip "Download boilerplate-bootstrap"

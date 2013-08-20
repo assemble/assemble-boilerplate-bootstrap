@@ -1,0 +1,8 @@
+v0.2.0:
+  date: 2013-08-03
+  changes:
+    - Refactored to build Bootstrap without having to manually edit the templates.
+v0.1.0:
+  date: 2013-07-16
+  changes:
+    - First commit.
