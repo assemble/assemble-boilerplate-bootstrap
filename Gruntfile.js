@@ -55,7 +55,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'vendor/bootstrap',
             src: ['*.html', '_layouts/*.html', '_includes/*.html', '!js/**'],
-            dest: '<%= site.destination %>/src/',
+            dest: 'src/',
             ext: '.hbs'
           }
         ]
@@ -68,12 +68,12 @@ module.exports = function(grunt) {
         site: '<%= site %>',
         flatten: true,
         assets: '<%= site.destination %>/assets',
-        partials: '<%= site.destination %>/src/_includes/*.hbs',
-        layoutdir: '<%= site.destination %>/src/_layouts',
+        partials: 'src/_includes/*.hbs',
+        layoutdir: 'src/_layouts',
         layout: 'default.hbs'
       },
       docs: {
-        src: ['<%= site.destination %>/src/*.hbs'],
+        src: ['src/*.hbs'],
         dest: '<%= site.destination %>/'
       }
     },

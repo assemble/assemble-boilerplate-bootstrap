@@ -1,0 +1,38 @@
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="{{ assets }}/js/jquery.js"></script>
+<script src="{{ assets }}/js/bootstrap.js"></script>
+
+<script src="http://platform.twitter.com/widgets.js"></script>
+<script src="{{ assets }}/js/holder.js"></script>
+<script src="{{ assets }}/js/highlight.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="{{ assets }}/js/application.js"></script>
+
+{{#is slug "customize"}}
+    {{ assets }}/js/less.js"></script>
+  {{/is}}
+<script src="{{ assets }}/js/jszip.js"></script>
+<script src="{{ assets }}/js/uglify.js"></script>
+<script src="{{ assets }}/js/filesaver.js"></script>
+<script src="{{ assets }}/js/raw-files.js"></script>
+<script src="{{ assets }}/js/customizer.js"></script>
+
+
+
+<!-- Analytics
+================================================== -->
+<script>
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
+    t.src = '//secure.gaug.es/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
