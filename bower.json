@@ -1,6 +1,6 @@
 {
   "name": "boilerplate-bootstrap",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": [
     "./Gruntfile.js"
   ],
@@ -12,7 +12,8 @@
     "vendor"
   ],
   "dependencies": {
-    "bootstrap": "~3.0.0-rc1",
-    "highlightjs": "~7.3.0"
+    "highlightjs": "~7.3.0",
+    "bootstrap": "~3.0.0",
+    "prettify": "*"
   }
 }

@@ -10,6 +10,8 @@ module.exports = function(grunt) {
 
   "use strict";
 
+  grunt.util._.mixin(require('resolve-dep'));
+
   // Project configuration.
   grunt.initConfig({
 
@@ -42,7 +44,7 @@ module.exports = function(grunt) {
     },
 
     // Regex for refactor task.
-    replacements: require('./tasks/replacements').init(grunt),
+    replacements: require('./tasks/replacements'),
 
     // Refactor Liquid to Handlebars so we can
     // build with Assemble instead of Jekyll
@@ -67,6 +69,12 @@ module.exports = function(grunt) {
         pkg: '<%= pkg %>',
         site: '<%= site %>',
         flatten: true,
+        // Load prettify helper from node_modules.
+        helpers: ['<%= _.loadDev("helper-*") %>'],
+        prettify: {
+          condense: true,
+          indent_scripts: 'keep'
+        },
         assets: '<%= site.destination %>/assets',
         partials: 'src/_includes/*.hbs',
         layoutdir: 'src/_layouts',
@@ -98,6 +106,7 @@ module.exports = function(grunt) {
     }
   });
 
+
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-contrib-clean');
@@ -107,9 +116,23 @@ module.exports = function(grunt) {
   // Load local "Subgrunt" task to run Bootstrap's Gruntfile.
   grunt.loadTasks('tasks');
 
-  // Default task to be run with the "grunt" command.
-  grunt.registerTask('default', ['clean', 'subgrunt:js', 'subgrunt:css', 'copy', 'refactor', 'assemble']);
+  grunt.registerTask('wraplayouts', function() {
+    var layouts = grunt.file.expand('src/_layouts/*.hbs').map(function(layout) {
+      grunt.file.write(layout, "{{#prettify}}" + grunt.file.read(layout) + "{{/prettify}}");
+    });
+  });
 
   // Tests task.
   grunt.registerTask('test', ['subgrunt:test']);
+
+  // Default task to be run with the "grunt" command.
+  grunt.registerTask('default', [
+    'clean',
+    'subgrunt:js',
+    'subgrunt:css',
+    'copy',
+    'refactor',
+    'wraplayouts',
+    'assemble'
+  ]);
 };

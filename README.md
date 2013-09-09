@@ -61,18 +61,13 @@ assemble: {
 
 
 ## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Use [Assemble][assemble] to build and maintain your gh-pages, blog or documentation. Lint and test your code using [Grunt](http://gruntjs.com/).
+In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality.
 
 
 ## Release History
 * 2013-08-03    v0.2.0    Refactored to be awesome.
 * 2013-07-16    v0.1.0    First commit.
 
-
-***
-
-
-Project authored by [Jon Schlinkert](https://github.com/jonschlinkert/).
 
 
 [download]: https://github.com/assemble/boilerplate-bootstrap/archive/master.zip "Download boilerplate-bootstrap"
