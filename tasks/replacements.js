@@ -23,12 +23,8 @@ module.exports.regex = exports.regex = {
     // Titles and basic variables
     // -------------------------------------------------
     {
-      pattern: /(\{%\s*)(if\s(page\..+)\s==\s(.+))\s(%\})\s*(.+)(\{\{.*\}\}.*)/g,
-      replacement: '{{#is $3 $4}}\n    $7\n  {{/is}}'
-    },
-    {
-      pattern: /(\{% else if %\})\s*(\{\{.*)\s*(\{% endif %\})/g,
-      replacement: '{{#isnt title "Bootstrap"}}\n    $2\n  {{/isnt}}'
+      pattern: /({%\s*?if\s*?)(page\..+?)(\s*?==\s*?)(.*?)(\s*?%})(.*?\n\s*?)({{.*?}})(\s*?)({%\s*?else if\s*?%})(.*?\n.*?)(\n.*?)({%\s*?endif\s*?%})/g,
+      replacement: '{{#is $2$4}}$6$7$8{{/is}}$8{{#isnt title "Bootstrap"}}$10$11{{/isnt}}'
     },
 
     // Navigation
@@ -40,18 +36,38 @@ module.exports.regex = exports.regex = {
       //    From: {% if page.slug == "getting-started" %} class="active"{% endif %}
       //    To:   {{#is basename "getting-started"}} class="active"{{/is}}
       //
-      pattern: /(\{%\s*if|elsif)\s(page\.slug[ ]?==[ ]?)(".*)[ ]%\}(.*)(?:\{% endif %\})/g,
-      replacement: '{{#is slug $3}}$4{{/is}}'
+      pattern: /({%\s*?if\s*?)(page\..+?)(\s*?==\s*?)(.*?)(\s*?%})(.*?)({% endif %})/gi,
+      replacement: '{{#is $2$4}}$6{{/is}}'
     },
     {
       // Replace liquid {% if/elseif %} navigation blocks with Handlebars {{#is/unless}}
-      pattern: /(\{%\s*)\b(.*)\b\s(\b(.*)\b\.(.*)\s==\s)(.*\s*)(%\})(\s.*)(\s*)(\{(%|\{)\s*\b(.*)\b)\s(.*)(?:\.html)(\s*%\})/g,
-      replacement: '{{#is slug $6}} $9 {{> $13 }}\n              {{/is}}'
+      pattern: /({%\s*)\b(.*)\b\s(\b(.*)\b\.(.*)\s==\s)(.*\s*)(\s*?%})(\s.*)(\s*)({(%|\{)\s*\b(.*)\b)\s(.*)(?:\.html)(\s*%})(\s*)/g,
+      replacement: '{{#is slug $6}}$8$9{{> $13 }}$15{{/is}}$15'
+    },
+    {
+      // Replace liquid tags in footer.html with Handlebars helpers.
+      //
+      // Example:
+      //    From:
+      //          {% if page.slug == "customize" %}
+      //          <script src="{{ page.base_url }}assets/js/less.js"></script>
+      //          ...
+      //          <script src="{{ page.base_url }}assets/js/customizer.js"></script>
+      //          {% endif %}
+      //    To:
+      //          {{#is slug == "customize" }}
+      //          <script src="{{ page.base_url }}assets/js/less.js"></script>
+      //          ...
+      //          <script src="{{ page.base_url }}assets/js/customizer.js"></script>
+      //          {{/is}}
+      //
+      pattern: /({%\s*?if\s*?)(page\..+?)(\s*?==\s*?)(.*?)(\s*?%})([\s\S]*?)({% endif %})/gi,
+      replacement: '{{#is $2$4}}$6{{/is}}'
     },
     {
       // Clean up any remaining {% endif %}'s
-      pattern: /(?:\{%\s*endif\s*%\})/g,
-      replacement: '\n'
+      pattern: /(?:\n\s*?{%\s*endif\s*%})/g,
+      replacement: ''
     },
 
     // Tags
@@ -131,7 +147,7 @@ module.exports.regex = exports.regex = {
     // Add script and link tags for highlight.js
     // -------------------------------------------------
     {
-      pattern: /(\<meta name=\"description\" content=\"\"\>)/g,
+      pattern: /(<meta name=\"description\" content=\"\"\>)/g,
       replacement: '<meta name="description" content="{{pkg.description}}">'
     },
     {
