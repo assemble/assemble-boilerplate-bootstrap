@@ -61,6 +61,24 @@ module.exports = function(grunt) {
             ext: '.hbs'
           }
         ]
+      },
+      examples: {
+        options: {
+          replacements: [
+            {
+              // Fix example assets
+              pattern: /(..\/..\/dist\/)/gi,
+              replacement: '../../assets/'
+            }
+          ]
+        },
+        files: [{
+          expand: true,
+          filter: 'isFile',
+          cwd: 'vendor/bootstrap/examples/',
+          src: ['{*,**}/*.html'],
+          dest: '<%= site.destination %>/examples/'
+        }]
       }
     },
 
@@ -95,6 +113,7 @@ module.exports = function(grunt) {
       },
       assets: {
         files: [
+          {expand: true, cwd: 'vendor/bootstrap/examples', src: ['**/*.css', '**/*.{jpg,png,gif}'], dest: '<%= site.destination %>/examples/'},
           {expand: true, cwd: 'vendor/bootstrap/dist', src: ['**'], dest: '<%= site.destination %>/assets/'},
           {expand: true, cwd: 'vendor/bootstrap', src: ['assets/**'], dest: '<%= site.destination %>/'}
         ]
