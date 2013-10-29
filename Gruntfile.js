@@ -10,14 +10,16 @@ module.exports = function(grunt) {
 
   "use strict";
 
-  grunt.util._.mixin(require('resolve-dep'));
+  if(!grunt.file.exists('vendor/bootstrap/_config.yml')) {
+    grunt.fail.fatal('>> Please run "bower install" before continuing.');
+  }
 
   // Project configuration.
   grunt.initConfig({
 
     // Load Bootstrap's config data.
     site: grunt.file.readYAML('vendor/bootstrap/_config.yml'),
-    pkg: grunt.file.readJSON('package.json'),
+    pkg : grunt.file.readJSON('package.json'),
 
     // Run Bootstrap's own Gruntfile.
     subgrunt: {
