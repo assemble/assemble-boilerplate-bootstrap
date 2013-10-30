@@ -1,14 +1,16 @@
 /*
- * Regex for converting Bootstrap's liquid
- * templates over to Handlebars.
+ * Replacement patterns for converting Bootstrap's liquid templates to Handlebars.
  * Copyright (c) 2013 Jon Schlinkert
  * Licensed under the MIT license.
  */
 
 module.exports.regex = exports.regex = {
   patterns: [
-    // Layouts
-    // -------------------------------------------------
+
+    /**
+     * Layouts
+     */
+
     {
       // Replace {{content}} tag with {{> body }} partial
       pattern: /(?:\{\{\s*content\s*\}\})/g,
@@ -19,23 +21,24 @@ module.exports.regex = exports.regex = {
       pattern: /(---\s*layout:.*)/g,
       replacement: '$1.hbs'
     },
-
-    // Titles and basic variables
-    // -------------------------------------------------
-    // {
-    //   pattern: /({%\s*?if\s*?)(page\..+?)(\s*?==\s*?)(.*?)(\s*?%})(.*?\n\s*?)({{.*?}})(\s*?)({%\s*?else if\s*?%})(.*?\n.*?)(\n.*?)({%\s*?endif\s*?%})/g,
-    //   replacement: '{{#is $2$4}}$6$7$8{{/is}}$8{{#isnt title "Bootstrap"}}$10$11{{/isnt}}'
-    // },
-
-    // Navigation
-    // -------------------------------------------------
     {
-      // Replace liquid tags in nav anchors with Handlebars helpers.
-      //
-      // Example:
-      //    From: {% if page.slug == "getting-started" %} class="active"{% endif %}
-      //    To:   {{#is basename "getting-started"}} class="active"{{/is}}
-      //
+      // Remove `page.` variable
+      pattern: /({%|{{)\s*?page\./g,
+      replacement: '$1 '
+    },
+
+
+    /**
+     * Navigation
+     */
+
+    {
+     /**
+      * Replace liquid tags in nav anchors with Handlebars helpers.
+      * @example:
+      *   From: {% if page.slug == "getting-started" %} class="active"{% endif %}
+      *   To:   {{#is basename "getting-started"}} class="active"{{/is}}
+      */
       pattern: /({%\s*?if\s*?)(page\..+?)(\s*?==\s*?)(.*?)(\s*?%})(.*?)({% endif %})/gi,
       replacement: '{{#is $2$4}}$6{{/is}}'
     },
@@ -45,22 +48,22 @@ module.exports.regex = exports.regex = {
       replacement: '{{#is slug $6}}$8$9{{> $13 }}$15{{/is}}$15'
     },
     {
-      // Replace liquid tags in footer.html with Handlebars helpers.
-      //
-      // Example:
-      //    From:
-      //          {% if page.slug == "customize" %}
-      //          <script src="{{ page.base_url }}assets/js/less.js"></script>
-      //          ...
-      //          <script src="{{ page.base_url }}assets/js/customizer.js"></script>
-      //          {% endif %}
-      //    To:
-      //          {{#is slug == "customize" }}
-      //          <script src="{{ page.base_url }}assets/js/less.js"></script>
-      //          ...
-      //          <script src="{{ page.base_url }}assets/js/customizer.js"></script>
-      //          {{/is}}
-      //
+     /**
+      * Replace liquid tags in footer.html with Handlebars helpers.
+      * @example:
+      *  From:
+      *    {% if page.slug == "customize" %}
+      *    <script src="{{ page.base_url }}assets/js/less.js"></script>
+      *    ...
+      *    <script src="{{ page.base_url }}assets/js/customizer.js"></script>
+      *    {% endif %}
+      *  To:
+      *    {{#is slug == "customize" }}
+      *    <script src="{{ page.base_url }}assets/js/less.js"></script>
+      *    ...
+      *    <script src="{{ page.base_url }}assets/js/customizer.js"></script>
+      *    {{/is}}
+      */
       pattern: /({%\s*?if\s*?)(page\..+?)(\s*?==\s*?)(.*?)(\s*?%})([\s\S]*?)({% endif %})/gi,
       replacement: '{{#is $2$4}}$6{{/is}}'
     },
@@ -70,8 +73,11 @@ module.exports.regex = exports.regex = {
       replacement: ''
     },
 
-    // Tags
-    // -------------------------------------------------
+
+    /**
+     * Tags
+     */
+
     {
       // Replace liquid includes with Handlebars partials
       pattern: /(\{%\s*include\s*)(|(?:.*)+)(?:\.html\s*%\})/g,
@@ -92,18 +98,6 @@ module.exports.regex = exports.regex = {
       pattern: /(?:\{\{\s*base_url\s*\}\}(assets|dist|docs-assets))/g,
       replacement: '{{ assets }}'
     },
-    // Use {{root}} variable once it's implemented in Assemble
-    // {
-    //   // Replace "{{ base_url }}/dist" and "{{ base_url }}/assets" with "{{ assets }}"
-    //   pattern: /(href=")(\{\{[ ]?base_url[ ]?\}\})[\/]?(|.*)[ ]?"/g,
-    //   replacement: 'href="{{root}}/$3.html\"'
-    // },
-    // {
-    //   // cleanup from previous regex
-    //   pattern: /({{root}}\/.html)/g,
-    //   replacement: '{{root}}\/'
-    // },
-
     {
       // Replace "{{ base_url }}/dist" and "{{ base_url }}/assets" with "{{ assets }}"
       pattern: /(\{\{ base_url \}\}2\.3\.2)/g,
@@ -113,6 +107,10 @@ module.exports.regex = exports.regex = {
       // Replace "{{ base_url }}/dist" and "{{ base_url }}/assets" with "{{ assets }}"
       pattern: /(href=")(\{\{[ ]?base_url[ ]?\}\})[\/]?(|.*)[ ]?"/g,
       replacement: 'href="./$3.html\"'
+    },
+    {
+      pattern: /\{%\s?else\s?%}/g,
+      replacement: '{{ else }}'
     },
     {
       // cleanup from previous regex
@@ -125,8 +123,11 @@ module.exports.regex = exports.regex = {
       replacement: 'now'
     },
 
-    // Code blocks and syntax highlighting
-    // -------------------------------------------------
+
+    /**
+     * Code blocks and syntax highlighting
+     */
+
     {
       // highlight.js doesn't support line numbers, so convert the
       // language definition to just "html"
@@ -144,8 +145,11 @@ module.exports.regex = exports.regex = {
       replacement: '```\n{{/markdown}}\n'
     },
 
-    // Add script and link tags for highlight.js
-    // -------------------------------------------------
+
+    /**
+     * Add script and link tags for highlight.js
+     */
+
     {
       pattern: /(<meta name=\"description\" content=\"\"\>)/g,
       replacement: '<meta name="description" content="{{pkg.description}}">'

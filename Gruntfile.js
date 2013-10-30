@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 
     // Refactor Liquid to Handlebars so we can
     // build with Assemble instead of Jekyll
-    refactor: {
+    frep: {
       bootstrap: {
         options: {
           replacements: '<%= replacements.regex.patterns %>'
@@ -131,7 +131,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('assemble');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-refactor');
+  grunt.loadNpmTasks('grunt-frep');
 
   // Load local "Subgrunt" task to run Bootstrap's Gruntfile.
   grunt.loadTasks('tasks');
@@ -145,13 +145,15 @@ module.exports = function(grunt) {
   // Tests task.
   grunt.registerTask('test', ['subgrunt:test']);
 
+  grunt.registerTask('dev', ['clean', 'frep', 'wraplayouts', 'assemble']);
+
   // Default task to be run with the "grunt" command.
   grunt.registerTask('default', [
     'clean',
     'subgrunt:js',
     'subgrunt:css',
     'copy',
-    'refactor',
+    'frep',
     'wraplayouts',
     'assemble'
   ]);
