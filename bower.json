@@ -1,19 +1,10 @@
 {
   "name": "boilerplate-bootstrap",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "main": [
-    "./Gruntfile.js"
-  ],
-  "ignore": [
-    "tmp",
-    "src",
-    "dist",
-    "_gh_pages",
-    "vendor"
+    "tasks/replacements.js"
   ],
   "dependencies": {
-    "highlightjs": "~7.3.0",
-    "bootstrap": "~3.0.0",
-    "prettify": "*"
+    "bootstrap": "~3.0.0"
   }
 }

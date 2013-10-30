@@ -4,8 +4,15 @@
  * Licensed under the MIT license.
  */
 
-module.exports.regex = exports.regex = {
-  patterns: [
+module.exports = {
+  examples: [
+    {
+      // Fix example assets
+      pattern: /(..\/..\/dist\/)/gi,
+      replacement: '../../assets/'
+    }
+  ],
+  bootstrap: [
 
     /**
      * Layouts
@@ -109,7 +116,7 @@ module.exports.regex = exports.regex = {
       replacement: 'href="./$3.html\"'
     },
     {
-      pattern: /\{%\s?else\s?%}/g,
+      pattern: /\{%\s?(else|else if)\s?%}/g,
       replacement: '{{ else }}'
     },
     {
@@ -152,7 +159,7 @@ module.exports.regex = exports.regex = {
 
     {
       pattern: /(<meta name=\"description\" content=\"\"\>)/g,
-      replacement: '<meta name="description" content="{{pkg.description}}">'
+      replacement: '<meta name="description" content="{{site.description}}">'
     },
     {
       // Find the holder.js script tag, then just add it back

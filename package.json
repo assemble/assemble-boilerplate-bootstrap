@@ -1,7 +1,7 @@
 {
   "name": "boilerplate-bootstrap",
   "description": "Build Bootstrap with Assemble instead of Jekyll.",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "homepage": "https://github.com/assemble/boilerplate-bootstrap",
   "author": [
     {
@@ -22,7 +22,7 @@
       "url": "http://opensource.org/licenses/MIT"
     }
   ],
-  "main": "Gruntfile.js",
+  "main": "tasks/replacements.js",
   "scripts": {
     "test": "grunt test"
   },
@@ -31,7 +31,8 @@
     "grunt": "~0.4.1",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-copy": "~0.4.1",
-    "grunt-frep": "~0.1.0"
+    "grunt-frep": "~0.1.0",
+    "pretty": "~0.1.1"
   },
   "keywords": [
     "assemble boilerplate",
