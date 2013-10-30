@@ -14,7 +14,7 @@ _You must have [NPM](npmjs.org), [Bower][bower] and [Grunt][grunt] installed glo
 
 Do _one_ of the following:
 
-* **[download][download]** this project,
+* **[download][download]** this project
 * `git clone https://github.com/assemble/boilerplate-bootstrap.git`
 * `bower install boilerplate-bootstrap`
 
