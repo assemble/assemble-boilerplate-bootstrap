@@ -22,10 +22,10 @@ module.exports.regex = exports.regex = {
 
     // Titles and basic variables
     // -------------------------------------------------
-    {
-      pattern: /({%\s*?if\s*?)(page\..+?)(\s*?==\s*?)(.*?)(\s*?%})(.*?\n\s*?)({{.*?}})(\s*?)({%\s*?else if\s*?%})(.*?\n.*?)(\n.*?)({%\s*?endif\s*?%})/g,
-      replacement: '{{#is $2$4}}$6$7$8{{/is}}$8{{#isnt title "Bootstrap"}}$10$11{{/isnt}}'
-    },
+    // {
+    //   pattern: /({%\s*?if\s*?)(page\..+?)(\s*?==\s*?)(.*?)(\s*?%})(.*?\n\s*?)({{.*?}})(\s*?)({%\s*?else if\s*?%})(.*?\n.*?)(\n.*?)({%\s*?endif\s*?%})/g,
+    //   replacement: '{{#is $2$4}}$6$7$8{{/is}}$8{{#isnt title "Bootstrap"}}$10$11{{/isnt}}'
+    // },
 
     // Navigation
     // -------------------------------------------------
@@ -89,7 +89,7 @@ module.exports.regex = exports.regex = {
     },
     {
       // Replace "{{ base_url }}/dist" and "{{ base_url }}/assets" with "{{ assets }}"
-      pattern: /(?:\{\{\s*base_url\s*\}\}(assets|dist))/g,
+      pattern: /(?:\{\{\s*base_url\s*\}\}(assets|dist|docs-assets))/g,
       replacement: '{{ assets }}'
     },
     // Use {{root}} variable once it's implemented in Assemble

@@ -89,8 +89,7 @@ module.exports = function(grunt) {
         pkg: '<%= pkg %>',
         site: '<%= site %>',
         flatten: true,
-        // Load prettify helper from node_modules.
-        helpers: ['<%= _.loadDev("helper-*") %>'],
+        helpers: ['helper-prettify'],
         prettify: {
           condense: true,
           indent_scripts: 'keep'
