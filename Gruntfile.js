@@ -32,7 +32,7 @@ module.exports = function(grunt) {
         src: ['vendor/bootstrap']
       },
       css: {
-        options: {task: 'recess:bootstrap'},
+        options: {task: 'less:compile'},
         src: ['vendor/bootstrap']
       },
       dist: {
