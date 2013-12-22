@@ -156,11 +156,6 @@ module.exports = {
     /**
      * Add script and link tags for highlight.js
      */
-
-    {
-      pattern: /(<meta name=\"description\" content=\"\"\>)/g,
-      replacement: '<meta name="description" content="{{site.description}}">'
-    },
     {
       // Find the holder.js script tag, then just add it back
       // with highlight.js directly afterwards
@@ -174,7 +169,27 @@ module.exports = {
       // with Bootstrap's styles.
       pattern: /(pygments-manni)(.*">)/,
       replacement: 'github$2\n<style>pre code { background: transparent; }<\/style>'
-    }
+    },
+    {
+      pattern: /(<link.+)(bootstrap.min.css)".+/g,
+      replacement: '<link href="{{ assets }}/css/site.css" rel="stylesheet">'
+    },
+    {
+      pattern: /_gaq.+'_setAccount.+/g,
+      replacement: '_gaq.push([\'_setAccount\', \'{{ site.ga.id }}\']);'
+    },
+    {
+      pattern: /<meta name="description.+/gm,
+      replacement: '<meta name="description" content="{{ site.description }}">'
+    },
+    {
+      pattern: /<meta name="keywords.+/gm,
+      replacement: '<meta name="keywords" content="{{ site.keywords }}">'
+    },
+    {
+      pattern: /<meta name="author.+/gm,
+      replacement: '<meta name="author" content="{{ site.author }}">'
+    },
   ]
 };
 

@@ -1,0 +1,107 @@
+# =============================================
+# Build config
+# =============================================
+
+root:             _gh_pages
+dest:             <%= site.root %>
+assets:           <%= site.dest %>/assets
+
+# Data
+data:             data/*.{json,yml}
+
+# Templates
+templates:        templates
+includes:         <%= site.templates %>/_includes/*.hbs
+layouts:          <%= site.templates %>/_layouts
+layout:           default.hbs
+pages:            <%= site.templates %>/pages
+
+# Extensions
+helpers:          <%= site.templates %>/helpers/*.js
+plugins:
+  - assemble-contrib-anchors
+  - assemble-contrib-wordcount
+  - assemble-contrib-toc
+
+# Theme
+theme:            theme
+
+
+# =============================================
+# Project metadata
+# =============================================
+
+author:           Jon Schlinkert # change to <%= pkg.author.name %> or <%= pkg.author %>
+
+# Assemble metadata.
+assemble:
+  latest:         0.4.33  # change to <%= pkg.version %>
+
+# GitHub
+username:         assemble
+name:             assemble # change to <%= pkg.name %>
+download:
+  source:         <%= pkg.homepage %>/archive/master.zip
+
+
+# =============================================
+# Site metadata
+# =============================================
+
+brand:            ASSEMBLE
+title:            BOILERPLATE
+lead:             The most awe inspiring static site boilerplate in Northern Kentucky.
+keywords:         <%= pkg.keywords %>
+
+version:          <%= pkg.version %>
+description:      <%= pkg.description %>
+license:
+  type:           <%= pkg.licenses[0].type %>
+  url:            <%= pkg.licenses[0].url %>
+
+
+
+# SEO/SEM
+ga:
+  id:             UA-35547601-2
+  domain:         false
+  siteid:         false
+  tags:           false
+
+
+# Links
+url:
+  repo:           <%= pkg.homepage %>
+  bugs:           <%= pkg.bugs.url %>?state=open
+  ghpages:        https://<%= site.username %>.github.io/<%= pkg.name %>/
+
+  # Site
+  domain:         http://assemble.io/
+  about:          <%= site.url.domain %>/about/
+  blog:           <%= site.url.domain %>/blog/
+
+
+# Comments
+disqus:
+  enabled:        true
+  shortname:      <%= pkg.name %>
+
+# Social
+social:
+  twitter:
+    via:          assemblejs
+    username:     assemblejs
+    related:      jonschlinkert:Assemble core team.
+  facebook:       false
+  linkedin:       false
+  gplus:          false
+  hn:             false
+  google:         false
+
+# Sharing
+sharing:
+  twitter:        false
+  facebook:       false
+  gplus:          false
+  hn:             false
+  google:         false

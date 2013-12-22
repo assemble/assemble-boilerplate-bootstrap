@@ -10,38 +10,43 @@
 module.exports = function(grunt) {
 
   var pretty = require('pretty');
-
-  if(!grunt.file.exists('vendor/bootstrap/_config.yml')) {
+  var vendor = grunt.file.readJSON('.bowerrc').directory;
+  if(!grunt.file.exists(vendor + '/bootstrap/_config.yml')) {
     grunt.fail.fatal('>> Please run "bower install" before continuing.');
   }
 
   // Project configuration.
   grunt.initConfig({
 
-    // Load Bootstrap's config data.
-    site: grunt.file.readYAML('vendor/bootstrap/_config.yml'),
+    // Project metadata
+    pkg   : grunt.file.readJSON('package.json'),
+    site  : grunt.file.readYAML('_config.yml'),
+    vendor: vendor,
+
+    // Convenience
+    bootstrap: '<%= vendor %>/bootstrap',
 
     // Run Bootstrap's own Gruntfile.
     subgrunt: {
       test: {
         options: {task: 'test'},
-        src: ['vendor/bootstrap']
+        src: ['<%= bootstrap %>']
       },
       js: {
-        options: {task: 'concat:bootstrap'},
-        src: ['vendor/bootstrap']
+        options: {task: 'concat'},
+        src: ['<%= bootstrap %>']
       },
       css: {
-        options: {task: 'less:compile'},
-        src: ['vendor/bootstrap']
+        options: {task: 'less'},
+        src: ['<%= bootstrap %>']
       },
       dist: {
         options: {task: 'dist'},
-        src: ['vendor/bootstrap']
+        src: ['<%= bootstrap %>']
       },
       all: {
         options: {task: 'default'},
-        src: ['vendor/bootstrap']
+        src: ['<%= bootstrap %>']
       }
     },
 
@@ -56,58 +61,83 @@ module.exports = function(grunt) {
           replacements: '<%= replacements.bootstrap %>'
         },
         files: [
-          {expand: true, cwd: 'vendor/bootstrap', src: ['*.html', '_layouts/*.html', '_includes/*.html'], dest: 'templates/', ext: '.hbs'}
+          {expand: true, cwd: '<%= bootstrap %>', src: ['*.html', '_layouts/*.html', '_includes/*.html'], dest: 'templates/', ext: '.hbs'}
         ]
       },
       examples: {
         options: {
           replacements: '<%= replacements.examples %>'
         },
-        files: [{
-          expand: true,
-          filter: 'isFile',
-          cwd: 'vendor/bootstrap/examples/',
-          src: ['{*,**}/*.html'],
-          dest: '<%= site.destination %>/examples/'
-        }]
+        files: [
+          {expand: true, filter: 'isFile', cwd: '<%= bootstrap %>/examples', src: ['{*,**}/*.html'], dest: '<%= site.dest %>/examples/'}
+        ]
       }
     },
 
     assemble: {
       options: {
         flatten: true,
+        assets: '<%= site.assets %>',
+        postprocess: pretty,
+
+        // Metadata
         site: '<%= site %>',
-        helpers: ['helper-prettify'],
-        assets: '<%= site.destination %>/assets',
-        partials: 'templates/_includes/*.hbs',
-        layoutdir: 'templates/_layouts',
-        layout: 'default.hbs',
-        postprocess: pretty
+
+        // Templates
+        partials: '<%= site.includes %>',
+        layoutdir: '<%= site.layouts %>',
+        layout: '<%= site.layout %>',
       },
-      docs: {
+      site: {
         src: ['templates/*.hbs'],
-        dest: '<%= site.destination %>/'
+        dest: '<%= site.dest %>/'
       }
     },
 
+
+    // Compile LESS to CSS
+    less: {
+      options: {
+        paths: [
+          '<%= site.theme %>',
+          '<%= site.theme %>/bootstrap',
+          '<%= site.theme %>/components',
+          '<%= site.theme %>/utils'
+        ],
+      },
+      site: {
+        src: ['<%= site.theme %>/site.less'],
+        dest: '<%= site.assets %>/css/site.css'
+      }
+    },
+
+
     copy: {
-      libs: {
+      vendor: {
         files: {
-          '<%= site.destination %>/assets/js/highlight.js': ['vendor/highlightjs/highlight.pack.js'],
-          '<%= site.destination %>/assets/css/github.css':  ['vendor/highlightjs/styles/github.css']
+          '<%= site.assets %>/js/highlight.js': ['<%= vendor %>/highlightjs/highlight.pack.js'],
+          '<%= site.assets %>/css/github.css':  ['<%= vendor %>/highlightjs/styles/github.css']
         }
       },
       assets: {
         files: [
-          {expand: true, cwd: 'vendor/bootstrap/examples', src: ['**/*.css', '**/*.{jpg,png,gif}'], dest: '<%= site.destination %>/examples/'},
-          {expand: true, cwd: 'vendor/bootstrap/dist', src: ['**'], dest: '<%= site.destination %>/assets/'},
-          {expand: true, cwd: 'vendor/bootstrap', src: ['assets/**'], dest: '<%= site.destination %>/'}
+          {expand: true, cwd: '<%= bootstrap %>/examples', src: ['**/*.css', '**/*.{jpg,png,gif}'], dest: '<%= site.dest %>/examples/'},
+          {expand: true, cwd: '<%= bootstrap %>/docs-assets', src: ['**'], dest: '<%= site.assets %>/'},
+          {expand: true, cwd: '<%= bootstrap %>/dist', src: ['**'], dest: '<%= site.assets %>/'},
+        ]
+      },
+      update: {
+        files: [
+          {expand: true, cwd: '<%= bootstrap %>/less', src: ['*', '!{var*,mix*,util*}'], dest: '<%= site.theme %>/bootstrap/'},
+          {expand: true, cwd: '<%= bootstrap %>/less', src: ['{util*,mix*}.less'], dest: '<%= site.theme %>/utils'},
+          {expand: true, cwd: '<%= bootstrap %>/less', src: ['variables.less'], dest: '<%= site.theme %>/'},
         ]
       }
     },
 
     clean: {
-      dist: ['<%= site.destination %>/**/*', '!<%= site.destination %>/.{git,gitignore}']
+      dist: ['<%= site.dest %>/**/*', '!<%= site.dest %>/.{git,gitignore}'],
+      update: ['<%= site.theme %>/bootstrap/{var*,mix*,util*}.less']
     }
   });
 
@@ -115,6 +145,7 @@ module.exports = function(grunt) {
 
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('assemble');
+  grunt.loadNpmTasks('assemble-less');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-frep');
@@ -128,6 +159,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('dev', ['clean', 'frep', 'assemble']);
 
+  grunt.registerTask('update', ['copy:update', 'clean:update']);
+
   // Default task to be run with the "grunt" command.
   grunt.registerTask('default', [
     'clean',
@@ -136,6 +169,7 @@ module.exports = function(grunt) {
     'copy',
     'frep',
     'assemble',
+    'less',
     'sync'
   ]);
 };

@@ -6,55 +6,66 @@
 
 * Converts the liquid templates to Handlebars
 * Builds the HTML from templates using [Assemble][assemble].
+* Swaps out some Bootstrap content with metadata from [_config.yml](./_config.yml).
 
 ## Quickstart
 _You must have [NPM](npmjs.org), [Bower][bower] and [Grunt][grunt] installed globally before you begin._
 
-### First
-
+#### 1. Download this project
 Do _one_ of the following:
 
 * **[download][download]** this project
-* `git clone https://github.com/assemble/boilerplate-bootstrap.git`
+* `git clone git://github.com/assemble/boilerplate-bootstrap.git`
 * `bower install boilerplate-bootstrap`
 
-### Next
-
-`cd` into the project, and from the command line run:
+#### 2. Next, install Bootstrap and dependencies
+Next, `cd` into the project run the following in the command line:
 
 ```bash
-npm i && bower install && cd vendor/bootstrap && npm i
+npm i && git clone git://github.com/twbs/bootstrap.git "vendor/bootstrap" && cd vendor/bootstrap && npm i
 ```
 
+#### 3. Customize [_config.yml](./_config.yml)
+Optionally update the metadata and config defaults to how you want them for your project.
+
+
+#### 4. Last, build.
 You may now run `grunt` to build the project.
 
-_Note that if you want to get the absolute latest, bleeding edge Bootstrap you will need to use `git clone https://github.com/twbs/bootstrap.git 'vendor/bootstrap'` instead of `bower install`._
 
-
-### The "assemble" task
+## The "assemble" task
 If you haven't used [Assemble][assemble] before, please visit [http://assemble.io/docs](http://assemble.io/docs) to learn how to customize the task.
 
-#### Overview
+### Overview
 In the project's Gruntfile, the example `assemble` task is pre-loaded with paths and options to build the project successfully:
 
 ```js
 assemble: {
   options: {
-    site: '<%= site %>',
     flatten: true,
-    assets: 'tmp/assets',
-    partials: 'tmp/_includes/*.hbs',
-    layoutdir: 'tmp/_layouts',
-    layout: 'default.hbs'
+    assets: '<%= site.assets %>',
+    postprocess: pretty,
+
+    // Metadata
+    site: '<%= site %>',
+
+    // Templates
+    partials: '<%= site.includes %>',
+    layoutdir: '<%= site.layouts %>',
+    layout: '<%= site.layout %>',
   },
   docs: {
-    src: ['tmp/*.hbs'],
-    dest: 'tmp/'
+    src: ['templates/*.hbs'],
+    dest: '<%= site.dest %>/'
   }
 }
 ```
 
-#### Author
+Take a look at [_config.yml](./_config.yml) to see some of the metadata and config data is defined.
+
+
+
+## Author
 
 **Jon Schlinkert**
 
@@ -67,9 +78,9 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 ## Release History
+* 2013-12-22    v0.2.6    Updated dependencies, Bootstrap paths.
 * 2013-08-03    v0.2.0    Refactored to be awesome.
 * 2013-07-16    v0.1.0    First commit.
-
 
 
 [download]: https://github.com/assemble/boilerplate-bootstrap/archive/master.zip "Download boilerplate-bootstrap"
