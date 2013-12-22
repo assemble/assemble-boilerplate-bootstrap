@@ -8,7 +8,7 @@ module.exports = {
   examples: [
     {
       // Fix example assets
-      pattern: /(..\/..\/dist\/)/gi,
+      pattern: /(..\/..\/(dist|docs-assets)\/)/g,
       replacement: '../../assets/'
     }
   ],
@@ -78,6 +78,28 @@ module.exports = {
       // Clean up any remaining {% endif %}'s
       pattern: /(?:\n\s*?{%\s*endif\s*%})/g,
       replacement: ''
+    },
+    {
+      pattern: /\{% comment %}/g,
+      replacement: '{{#comment}}'
+    },
+    {
+      pattern: /\{% endcomment %}/g,
+      replacement: '{{/comment}}'
+    },
+    {
+      pattern: /({% for iconClassName .+ %})([\s\S]+)({% endfor %})/,
+      replacement: function(a, b, c, d) {
+        b = '{{#each glyphicons}}\n';
+        c = [
+          '<li>',
+          '  <span class="glyphicon {{.}}"></span>',
+          '  <span class="glyphicon-class">glyphicon {{.}}</span>',
+          '</li>\n'
+        ].join('\n');
+        d = '{{/each}}\n';
+        return b + c + d;
+      }
     },
 
 
@@ -150,6 +172,11 @@ module.exports = {
     {
       pattern: /(\{%\s*endhighlight\s*%\})/g,
       replacement: '```\n{{/markdown}}\n'
+    },
+    {
+      // Fix example assets
+      pattern: /"..\/examples/g,
+      replacement: '"examples'
     },
 
 

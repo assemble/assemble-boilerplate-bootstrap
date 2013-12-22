@@ -44,7 +44,6 @@ assemble: {
   options: {
     flatten: true,
     assets: '<%= site.assets %>',
-    postprocess: pretty,
 
     // Metadata
     site: '<%= site %>',

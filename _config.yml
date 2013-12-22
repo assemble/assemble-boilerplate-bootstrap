@@ -7,7 +7,7 @@ dest:             <%= site.root %>
 assets:           <%= site.dest %>/assets
 
 # Data
-data:             data/*.{json,yml}
+data:             templates/_data
 
 # Templates
 templates:        templates

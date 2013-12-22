@@ -78,7 +78,7 @@ module.exports = function(grunt) {
       options: {
         flatten: true,
         assets: '<%= site.assets %>',
-        postprocess: pretty,
+        data: '<%= site.data %>/*.{json,yml}',
 
         // Metadata
         site: '<%= site %>',
@@ -123,6 +123,7 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: '<%= bootstrap %>/examples', src: ['**/*.css', '**/*.{jpg,png,gif}'], dest: '<%= site.dest %>/examples/'},
           {expand: true, cwd: '<%= bootstrap %>/docs-assets', src: ['**'], dest: '<%= site.assets %>/'},
+          {expand: true, cwd: '<%= bootstrap %>/_data', src: ['**'], dest: '<%= site.data %>/'},
           {expand: true, cwd: '<%= bootstrap %>/dist', src: ['**'], dest: '<%= site.assets %>/'},
         ]
       },
