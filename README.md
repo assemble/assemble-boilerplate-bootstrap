@@ -78,7 +78,7 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 
 ## Release History
-* 2013-12-22    v0.2.6    Updated dependencies, Bootstrap paths.
+* 2013-12-22    v0.2.6    Updated dependencies, Bootstrap paths. A number of updates to gruntfile and config. Adds _config.yml to project root, to make project metadata more customizable from the start.
 * 2013-08-03    v0.2.0    Refactored to be awesome.
 * 2013-07-16    v0.1.0    First commit.
 
