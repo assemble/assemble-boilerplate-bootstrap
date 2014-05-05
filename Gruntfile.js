@@ -151,6 +151,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-frep');
   grunt.loadNpmTasks('grunt-sync-pkg');
+  grunt.loadNpmTasks('grunt-verb');
 
   // Load local "Subgrunt" task to run Bootstrap's Gruntfile.
   grunt.loadTasks('tasks');

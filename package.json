@@ -36,7 +36,8 @@
     "grunt-frep": "~0.1.2",
     "grunt-sync-pkg": "~0.1.2",
     "handlebars-helper-prettify": "~0.2.1",
-    "pretty": "~0.1.1"
+    "pretty": "~0.1.1",
+    "grunt-verb": "~0.2.3"
   },
   "keywords": [
     "assemble boilerplate",
