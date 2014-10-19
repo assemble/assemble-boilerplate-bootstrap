@@ -5,13 +5,13 @@
     {{> header }}
   </head>
   <body>
-    <a class="sr-only" href="#content">Skip to main content</a>
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
     <!-- Docs master nav -->
-    {{> nav-main }}
+    {{> main }}
 
     <!-- Docs page layout -->
-    <div class="bs-header" id="content">
+    <div class="bs-docs-header" id="content">
       <div class="container">
         <h1>{{ title }}</h1>
         <p>{{ lead }}</p>
@@ -19,67 +19,44 @@
       </div>
     </div>
 
-    <!-- Callout for the old docs link -->
-    {{> old-bs-docs }}
-
     <div class="container bs-docs-container">
+
       <div class="row">
-        <div class="col-md-3">
-          <div class="bs-sidebar hidden-print" role="complementary">
-            <ul class="nav bs-sidenav">
-              {{#is slug "getting-started" }}
-                {{> nav-getting-started }}
-              {{/is}}
-              {{#is slug "css" }}
-                {{> nav-css }}
-              {{/is}}
-              {{#is slug "components" }}
-                {{> nav-components }}
-              {{/is}}
-              {{#is slug "js" }}
-                {{> nav-javascript }}
-              {{/is}}
-              {{#is slug "customize" }}
-                {{> nav-customize }}
-              {{/is}}
-              {{#is slug "about" }}
-                {{> nav-about }}
-              {{/is}}
-            </ul>
-          </div>
-        </div>
         <div class="col-md-9" role="main">
           {{> body }}
         </div>
+        <div class="col-md-3">
+          <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+            <ul class="nav bs-docs-sidenav">
+              {{#is slug "getting-started"}}
+                {{> getting-started }}
+              {{/is}} {{#is slug "css"}}
+                {{> css }}
+              {{/is}} {{#is slug "components"}}
+                {{> components }}
+              {{/is}} {{#is slug "js"}}
+                {{> javascript }}
+              {{/is}} {{#is slug "customize"}}
+                {{> customize }}
+              {{/is}} {{#is slug "about"}}
+                {{> about }}
+              {{/is}} {{#is slug "migration"}}
+                {{> migration }}
+              {{/is}}
+            </ul>
+            <a class="back-to-top" href="#top">
+              Back to top
+            </a>
+            {{#is slug "js"}}
+            <a href="#" class="bs-docs-theme-toggle">
+              Preview theme
+            </a>
+            {{/is}}
+          </div>
+        </div>
       </div>
-
     </div>
 
-    <!-- Footer
-    ================================================== -->
-    <footer class="bs-footer" role="contentinfo">
-      <div class="container">
-        {{> social-buttons }}
-
-        <p>Designed and built with all the love in the world by <a href="http://twitter.com/mdo" target="_blank">@mdo</a> and <a href="http://twitter.com/fat" target="_blank">@fat</a>.</p>
-        <p>Maintained by the <a href="https://github.com/twbs?tab=members">core team</a> with the help of <a href="https://github.com/twbs/bootstrap/graphs/contributors">our contributors</a>.</p>
-        <p>Code licensed under <a href="https://github.com/twbs/bootstrap/blob/master/LICENSE" target="_blank">MIT</a>, documentation under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
-        <ul class="footer-links">
-          <li>Currently v{{ site.current_version }}</li>
-          <li class="muted">&middot;</li>
-          <li><a href="http://getbootstrap.com/2.3.2/">Bootstrap 2.3.2 docs</a></li>
-          <li class="muted">&middot;</li>
-          <li><a href="{{ site.blog }}">Blog</a></li>
-          <li class="muted">&middot;</li>
-          <li><a href="{{ site.repo }}/issues?state=open">Issues</a></li>
-          <li class="muted">&middot;</li>
-          <li><a href="{{ site.repo }}/releases">Releases</a></li>
-        </ul>
-      </div>
-    </footer>
-
-    <!-- JS and analytics only. -->
     {{> footer }}
-
   </body>
 </html>
